@@ -1,8 +1,8 @@
 *.tar.gz
 */*.tar.gz
 */*data
-*/map_files
-*/*.nc
+# */map_files
+# */*.nc
 .DS_Store
 __pycache__/
 .ipynb_checkpoints

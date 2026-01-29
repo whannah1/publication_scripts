@@ -1,0 +1,144 @@
+
+  case     : cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+  src_dir  : /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run
+  dst_dir  : /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2
+  map_file : /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-08-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-08-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-09-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-09-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-10-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-10-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-11-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-11-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-12-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-12-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-01-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-01-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-02-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-02-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-03-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-03-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-04-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-04-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-05-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-05-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-06-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-06-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-07-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-07-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-08-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-08-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+  case     : cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+  src_dir  : /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run
+  dst_dir  : /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2
+  map_file : /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-08-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-08-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-09-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-09-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-10-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-10-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-11-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-11-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-12-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2019-12-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-01-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-01-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-02-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-02-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-03-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-03-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-04-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-04-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-05-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-05-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-06-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-06-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-07-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-07-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+[32mncremap -P eamxx -m /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc -i /global/cfs/cdirs/e3smdata/simulations/Cess/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/run/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-08-01-00000.nc -o /global/cfs/cdirs/m3312/whannah/2024-SCREAM-CESS/cess-plus4k.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2/data_remap_ne30pg2/output.scream.Cess.monthly_ne1024.AVERAGE.nmonths_x1.2020-08-01-00000.remap_ne30pg2.nc[0m
+
+ERROR: Unable to find specified regrid map /pscratch/sd/w/whannah/e3sm_scratch/files_map/map_ne1024pg2_to_ne30pg2_traave.nc
+HINT: Supply a valid map-file (weight-file) name or supply the grid files or data files and let ncremap create a mapfile for you
+
+done.
+

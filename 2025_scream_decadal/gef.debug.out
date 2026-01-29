@@ -1,0 +1,39 @@
+  case: [36mObs[0m
+    Removing daily climatology...
+    Binning the data...
+
+
+bin_cnt[b]: 11623.0
+
+bin_pcp[b]: 8.111554145812988
+
+bin_olr[b]: nan
+
+olr_sum: 0.0
+
+nan_cnt: 0
+
+fin_cnt: 0
+
+
+<xarray.DataArray 'olr' (time: 0, lat: 0, lon: 0)> Size: 0B
+dask.array<where, shape=(0, 0, 0), dtype=float32, chunksize=(0, 0, 0), chunktype=numpy.ndarray>
+Coordinates:
+  * lon      (lon) float32 0B 
+  * lat      (lat) float64 0B 
+  * time     (time) datetime64[ns] 0B 
+Attributes:
+    units:         W/m^2
+    var_desc:      Outgoing Longwave Radiation
+    precision:     2
+    dataset:       NOAA Interpolated OLR
+    level_desc:    Other
+    statistic:     Mean
+    parent_stat:   Individual Obs
+    valid_range:   [  0. 500.]
+    long_name:     Daily Mean OLR
+    actual_range:  [ 64.75 344.5 ]
+
+[]
+159.15user 5.65system 2:41.76elapsed 101%CPU (0avgtext+0avgdata 2418008maxresident)k
+12inputs+0outputs (0major+2935714minor)pagefaults 0swaps

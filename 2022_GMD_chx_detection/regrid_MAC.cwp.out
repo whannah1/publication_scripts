@@ -1,0 +1,246 @@
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201403.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201403.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201410.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201410.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201408.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201408.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201112.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201112.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201310.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201310.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201203.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201203.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201206.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201206.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201212.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201212.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201109.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201109.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201302.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201302.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201110.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201110.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201006.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201006.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201309.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201309.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201009.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201009.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201011.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201011.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201209.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201209.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201412.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201412.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201406.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201406.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201001.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201001.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201003.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201003.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201305.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201305.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201211.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201211.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201202.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201202.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201204.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201204.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201409.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201409.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201207.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201207.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201401.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201401.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201101.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201101.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201004.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201004.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201106.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201106.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201301.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201301.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201210.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201210.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201208.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201208.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201007.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201007.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201107.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201107.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201307.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201307.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201012.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201012.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201303.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201303.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201306.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201306.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201312.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201312.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201002.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201002.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201201.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201201.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201402.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201402.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201308.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201308.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201108.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201108.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201102.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201102.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201103.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201103.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201205.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201205.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201405.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201405.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201105.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201105.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201311.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201311.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201010.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201010.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201008.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201008.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201104.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201104.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201407.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201407.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201411.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201411.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201404.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201404.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201304.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201304.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201111.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201111.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_cwp/clwp1deg_maclwpv1.201005.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_cwp_ne30pg2/clwp1deg_maclwpv1.201005.remap_ne30pg2.nc4[0m
+12.50user 16.07system 0:55.54elapsed 51%CPU (0avgtext+0avgdata 91200maxresident)k
+4193762inputs+1501368outputs (0major+2676612minor)pagefaults 0swaps
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201211.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201211.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201204.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201204.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201403.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201403.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201005.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201005.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201106.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201106.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201207.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201207.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201104.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201104.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201110.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201110.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201011.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201011.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201012.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201012.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201111.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201111.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201307.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201307.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201404.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201404.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201004.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201004.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201108.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201108.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201406.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201406.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201405.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201405.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201212.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201212.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201002.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201002.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201006.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201006.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201206.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201206.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201301.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201301.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201306.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201306.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201401.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201401.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201001.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201001.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201003.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201003.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201107.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201107.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201201.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201201.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201007.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201007.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201101.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201101.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201408.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201408.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201302.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201302.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201304.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201304.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201411.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201411.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201112.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201112.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201305.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201305.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.200501.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.200501.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201407.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201407.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201103.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201103.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201311.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201311.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201008.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201008.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201010.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201010.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201203.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201203.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201308.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201308.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201208.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201208.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201209.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201209.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201109.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201109.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201312.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201312.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201303.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201303.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201309.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201309.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201402.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201402.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201102.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201102.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201210.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201210.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201409.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201409.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201205.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201205.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201202.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201202.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201412.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201412.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201009.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201009.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201105.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201105.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201310.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201310.remap_ne30pg2.nc4[0m
+
+[32mncremap -m map_files/map_180x360_to_ne30pg2_aave.nc -i /global/homes/w/whannah/Data/Obs/MAC/daily_twp/tlwp1deg_maclwpv1.201410.nc4 -o /global/homes/w/whannah/Data/Obs/MAC/daily_twp_ne30pg2/tlwp1deg_maclwpv1.201410.remap_ne30pg2.nc4[0m
+12.77user 16.24system 0:56.69elapsed 51%CPU (0avgtext+0avgdata 95380maxresident)k
+4264832inputs+1526768outputs (0major+2785480minor)pagefaults 0swaps

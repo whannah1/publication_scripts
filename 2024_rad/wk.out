@@ -1,0 +1,95 @@
+
+  var: [32mPRECT[0m
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON[0m
+      loading data...
+      PRECT           min: 0.0000   avg: 4.5900   max: 336.6145   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON.PRECT.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON[0m
+      loading data...
+      PRECT           min: 0.0000   avg: 4.5655   max: 344.7386   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON.PRECT.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON[0m
+      loading data...
+      PRECT           min: 0.0000   avg: 4.6318   max: 331.8311   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON.PRECT.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+
+    data_min: 0.56
+    data_max: 1.91
+
+
+  var: [32mU850[0m
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON[0m
+      loading data...
+      U850            min: -31.3015   avg: -4.2185   max: 35.8359   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON.U850.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON[0m
+      loading data...
+      U850            min: -31.3582   avg: -4.1109   max: 41.3183   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON.U850.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON[0m
+      loading data...
+      U850            min: -31.6583   avg: -4.0975   max: 35.3551   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON.U850.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+
+    data_min: 0.32
+    data_max: 4.93
+
+
+  var: [32mU200[0m
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON[0m
+      loading data...
+      U200            min: -52.0863   avg: -0.5017   max: 66.1665   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_1.MCICA_ON.U200.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON[0m
+      loading data...
+      U200            min: -50.6113   avg: 0.1402   max: 67.5964   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_8.MCICA_ON.U200.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+    case: [36mE3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON[0m
+      loading data...
+      U200            min: -50.0824   avg: 0.1142   max: 61.7957   shp: (1825, 16, 180)
+      calculating spectra...
+(29, 16, 181, 97)
+freq size is (97,).
+      writing to file - data/wk-wave-spectra.E3SM.2023-RAD-SENS-00.GNUGPU.ne30pg2_oECv3.F2010-MMF1.NXY_64x1.RNX_64.MCICA_ON.U200.lat_-15_15.nyr_5.dailiy.nc
+      num_days: 1825
+
+    data_min: 0.23
+    data_max: 4.62
+
+
+figs/FXX-wk-wave-spectra.png
+
+1384.01user 1733.19system 49:13.76elapsed 105%CPU (0avgtext+0avgdata 4087200maxresident)k
+1361273748inputs+0outputs (4major+32526572minor)pagefaults 0swaps

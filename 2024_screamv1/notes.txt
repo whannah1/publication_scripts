@@ -1,0 +1,8 @@
+
+Generate SCRIP file for IMERG data:
+
+
+ncremap -G ttl='Equi-Angular grid 0.1x0.1 deg'#latlon=1800,3600#lat_typ=uni#lon_typ=180_wst -g /pscratch/sd/w/whannah/e3sm_scratch/files_grid/IMERG_1800x3600_scrip.nc
+
+
+#-------------------------------------------------------------------------------

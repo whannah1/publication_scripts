@@ -1,0 +1,5 @@
+
+To regrid the model data use this script with case names as input arguments:
+  nohup time python regrid.E3SM.py E3SM.VTVAL.GNUGPU.ne30pg2_r05_oECv3.F-MMFXX.MOMFB.00 > regrid.E3SM.out & 
+  nohup time python regrid.E3SM.py E3SM.VTVAL.GNUGPU.ne30pg2_r05_oECv3.F-MMFXX.MOMFB.MOMVT.VT_0.00 > regrid.E3SM.out & 
+  nohup time python regrid.E3SM.py E3SM.VTVAL.GNUGPU.ne30pg2_r05_oECv3.F-MMFXX.MOMFB.MOMVT.VT_1.00 > regrid.E3SM.out & 

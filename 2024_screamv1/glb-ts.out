@@ -1,0 +1,374 @@
+  var: [32mSW_flux_up@tom[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (SW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      SW_flux_up@tom    min: 66.0727   avg: 107.4041   max: 115.6847   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.SW_flux_up@tom.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (SW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      SW_flux_up@tom    min: 61.1289   avg: 101.5786   max: 109.4027   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.SW_flux_up@tom.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (SW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      SW_flux_up@tom    min: 55.7097   avg: 93.4096   max: 100.9044   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.SW_flux_up@tom.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (SW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-05-00900.nc[0m
+      SW_flux_up@tom    min: 59.5074   avg: 99.9795   max: 107.9698   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.SW_flux_up@tom.Oct1_2013_SCREAMv1.nc
+  var: [32mLW_flux_up@tom[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (LW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      LW_flux_up@tom    min: 233.8084   avg: 235.8836   max: 254.5469   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.LW_flux_up@tom.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (LW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      LW_flux_up@tom    min: 231.6967   avg: 235.3237   max: 255.9563   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.LW_flux_up@tom.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (LW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      LW_flux_up@tom    min: 239.7814   avg: 243.4685   max: 261.6945   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.LW_flux_up@tom.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (LW_flux_up@tom)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.TOMVars.INSTANT.nmins_x15.2013-10-05-00900.nc[0m
+      LW_flux_up@tom    min: 236.3163   avg: 239.4578   max: 258.6299   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.LW_flux_up@tom.Oct1_2013_SCREAMv1.nc
+  var: [32mVapWaterPath[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (VapWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      VapWaterPath    min: 23.2987   avg: 23.7588   max: 24.4494   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.VapWaterPath.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (VapWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      VapWaterPath    min: 23.2241   avg: 23.5944   max: 24.1611   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.VapWaterPath.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (VapWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      VapWaterPath    min: 25.9225   avg: 26.4142   max: 27.3233   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.VapWaterPath.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (VapWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-05-00900.nc[0m
+      VapWaterPath    min: 23.5395   avg: 23.9751   max: 24.6981   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.VapWaterPath.Oct1_2013_SCREAMv1.nc
+  var: [32mIceWaterPath[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (IceWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      IceWaterPath    min: 0.0014   avg: 0.0959   max: 0.1127   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.IceWaterPath.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (IceWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      IceWaterPath    min: 0.0012   avg: 0.1066   max: 0.1283   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.IceWaterPath.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (IceWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      IceWaterPath    min: 0.0016   avg: 0.1007   max: 0.1226   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.IceWaterPath.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (IceWaterPath)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.VertIntegrals.INSTANT.nmins_x15.2013-10-05-00900.nc[0m
+      IceWaterPath    min: 0.0011   avg: 0.1002   max: 0.1255   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.IceWaterPath.Oct1_2013_SCREAMv1.nc
+  var: [32mT_2m[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (T_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      T_2m            min: 285.2244   avg: 286.9021   max: 287.3648   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.T_2m.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (T_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      T_2m            min: 286.1248   avg: 287.6799   max: 288.1341   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.T_2m.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (T_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      T_2m            min: 289.0285   avg: 290.4953   max: 291.0170   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.T_2m.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (T_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-04500.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-08100.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-11700.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-15300.nc[0m
+      T_2m            min: 287.3536   avg: 287.9172   max: 288.2476   shp: (20,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.T_2m.Oct1_2013_SCREAMv1.nc
+  var: [32mwind_speed_10m[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (wind_speed_10m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      wind_speed_10m    min: 6.9032   avg: 7.0831   max: 7.3423   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.wind_speed_10m.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (wind_speed_10m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      wind_speed_10m    min: 7.0525   avg: 7.2848   max: 7.3906   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.wind_speed_10m.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (wind_speed_10m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      wind_speed_10m    min: 7.0649   avg: 7.2084   max: 7.2746   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.wind_speed_10m.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (wind_speed_10m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-04500.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-08100.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-11700.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-15300.nc[0m
+      wind_speed_10m    min: 7.0917   avg: 7.1719   max: 7.2376   shp: (20,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.wind_speed_10m.Oct1_2013_SCREAMv1.nc
+  var: [32mps[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (ps)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      ps              min: 98558.1572   avg: 98562.6642   max: 98569.4282   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.ps.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (ps)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      ps              min: 98555.7278   avg: 98559.3555   max: 98564.9069   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.ps.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (ps)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      ps              min: 98578.1657   avg: 98582.9867   max: 98591.8946   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.ps.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (ps)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-04500.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-08100.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-11700.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-15300.nc[0m
+      ps              min: 98568.3601   avg: 98569.3733   max: 98569.7673   shp: (20,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.ps.Oct1_2013_SCREAMv1.nc
+  var: [32mqv_2m[0m
+
+    case: [36mDYAMOND2_SCREAMv1[0m
+      recalculating...
+      Loading data (qv_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-20-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-21-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-22-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-23-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND2_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2020-01-24-00900.nc[0m
+      qv_2m           min: 0.0097   avg: 0.0099   max: 0.0100   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.qv_2m.DYAMOND2_SCREAMv1.nc
+
+    case: [36mApr1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (qv_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Apr1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-04-05-00900.nc[0m
+      qv_2m           min: 0.0097   avg: 0.0099   max: 0.0100   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.qv_2m.Apr1_2013_SCREAMv1.nc
+
+    case: [36mDYAMOND1_SCREAMv1[0m
+      recalculating...
+      Loading data (qv_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-01-00900.nc[0m
+        f: 001  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-02-00900.nc[0m
+        f: 002  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-03-00900.nc[0m
+        f: 003  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-04-00900.nc[0m
+        f: 004  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/DYAMOND1_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2016-08-05-00900.nc[0m
+      qv_2m           min: 0.0107   avg: 0.0108   max: 0.0109   shp: (480,)
+      Writing data to file: data/global-mean-timeseries.v1.tmp.nday_5.qv_2m.DYAMOND1_SCREAMv1.nc
+
+    case: [36mOct1_2013_SCREAMv1[0m
+      recalculating...
+      Loading data (qv_2m)...
+        f: 000  file: [33m/global/cfs/cdirs/e3sm/gsharing/EAMxx/Oct1_2013_SCREAMv1/output.scream.SurfVars.INSTANT.nmins_x15.2013-10-01-00900.nc[0m
+Traceback (most recent call last):
+  File "/global/homes/w/whannah/.conda/envs/pyn_env/lib/python3.8/site-packages/xarray/core/dataset.py", line 1339, in _construct_dataarray
+    variable = self._variables[name]
+KeyError: 'qv_2m'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "code/plot.global-mean-timeseries.v1.py", line 177, in <module>
+    data = ds[tvar]
+  File "/global/homes/w/whannah/.conda/envs/pyn_env/lib/python3.8/site-packages/xarray/core/dataset.py", line 1430, in __getitem__
+    return self._construct_dataarray(key)
+  File "/global/homes/w/whannah/.conda/envs/pyn_env/lib/python3.8/site-packages/xarray/core/dataset.py", line 1341, in _construct_dataarray
+    _, name, variable = _get_virtual_variable(self._variables, name, self.dims)
+  File "/global/homes/w/whannah/.conda/envs/pyn_env/lib/python3.8/site-packages/xarray/core/dataset.py", line 177, in _get_virtual_variable
+    raise KeyError(key)
+KeyError: 'qv_2m'
+Command exited with non-zero status 1
+1610.93user 6593.67system 3:08:18elapsed 72%CPU (0avgtext+0avgdata 66967572maxresident)k
+100477160inputs+0outputs (2552229major+2415841919minor)pagefaults 0swaps
