@@ -1,15 +1,15 @@
-import os, ngl, subprocess as sp, numpy as np, xarray as xr, dask, copy, string, cmocean, numba
+import os, subprocess as sp, numpy as np, xarray as xr, dask, copy, string, cmocean, numba
 import hapy_common as hc, hapy_E3SM   as he, hapy_setres as hs
-# import pg_checkerboard_utilities as pg
-from sknni import SkNNI
-from pyproj import Geod
-geod_obj = Geod(ellps='clrk66') # Use Clarke 1866 ellipsoid.
-deg_to_rad = np.pi/180. ; rad_to_deg = 180./np.pi
+import sohip_methods
 #---------------------------------------------------------------------------------------------------
 '''
 nohup time python -u  code_sohip/plot.sohip.curtain.v3.py > sohip.curtain.v3.ncll_3.out &
 pspy ; echo ; tail sohip.curtain.v3.ncll_3.out
 '''
+#---------------------------------------------------------------------------------------------------
+
+add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+
 #---------------------------------------------------------------------------------------------------
 
 # data_case = f'helene.ne1024pg2_ne1024pg2.F2010-SCREAMv1.may14_helene_pert1_001'
@@ -34,9 +34,9 @@ data_file = '/pscratch/sd/e/ebercosh/SCREAM/Helene_ne1024/control/E0/scream_outp
 # elat1,elat2 = slat-dx,slat+dx
 # elon1,elon2 = slon-dx,slon+dx
 
-# new method to define path outward from center location
-xlat,xlon   = 22.96, 273.53 # center point - Hurricane Helene - 9/26 00Z
-slat,slon   = 27, 271       # faux ISS point used for path bearing
+# # new method to define path outward from center location
+# xlat,xlon   = 22.96, 273.53 # center point - Hurricane Helene - 9/26 00Z
+# slat,slon   = 27, 271       # faux ISS point used for path bearing
 dist_km     = 800e3         # total path distance in meters
 path_spc_km = 2             # spacing between interpolated path points
 
@@ -66,107 +66,38 @@ tmp_file = tmp_file.replace('.nc',f'.dist_km_{int(dist_km)}.nc')
 #---------------------------------------------------------------------------------------------------
 print() ; print(f'tmp_file: {tmp_file}') ; print()
 # exit()
-#---------------------------------------------------------------------------------------------------
-@numba.njit
-def calc_great_circle_distance(lat1,lat2,lon1,lon2):
-  '''
-  input should be in degrees
-  '''
-  dlon = lon2 - lon1
-  cos_dist = np.sin(lat1*deg_to_rad)*np.sin(lat2*deg_to_rad) + \
-            np.cos(lat1*deg_to_rad)*np.cos(lat2*deg_to_rad)*np.cos(dlon*deg_to_rad)
-  # print( str(cos_dist.min()) +"   "+ str(cos_dist.max()) )
-  cos_dist = np.where(cos_dist> 1.0, 1.0,cos_dist)
-  cos_dist = np.where(cos_dist<-1.0,-1.0,cos_dist)
-  dist = np.arccos( cos_dist )
-  return dist
-#---------------------------------------------------------------------------------------------------
-@numba.njit
-def calc_great_circle_bearing(lat1_in,lat2_in,lon1_in,lon2_in):
-   deg_to_rad = np.pi/180.
-   rad_to_deg = 180./np.pi
-   lat1 = lat1_in * deg_to_rad
-   lat2 = lat2_in * deg_to_rad
-   lon1 = lon1_in * deg_to_rad
-   lon2 = lon2_in * deg_to_rad
 
-   dlon = lon1 - lon2
+#---------------------------------------------------------------------------------------------------
+# # define path outward from a given center location
 
-   atan_tmp1 = np.sin(lon2-lon1)*np.cos(lat2)
-   atan_tmp2 = np.cos(lat1)*np.sin(lat2)-np.sin(lat1)*np.cos(lat2)*np.cos(lon2-lon1)
-   bearing = np.arctan2( atan_tmp1, atan_tmp2 )
+# # Calculate bearing between tangent and instrument locations 
+# bearing1 = calc_great_circle_bearing(lat1_in=xlat,lat2_in=slat,lon1_in=xlon,lon2_in=slon)
+# bearing2 = bearing1+180
+# if bearing2>360: bearing2 -= 360
+# # define end points for each side of the path outward along the bearing
+# elon1, elat1, back_azimuth = geod_obj.fwd(xlon, xlat, bearing1, dist_km/2.)
+# elon2, elat2, back_azimuth = geod_obj.fwd(xlon, xlat, bearing2, dist_km/2.)
+# # define points along each path segment
+# npts_half = int((dist_km/2.)/path_spc_km)
+# path1 = geod_obj.npts(lon1=xlon, lat1=xlat, lon2=elon1, lat2=elat1, npts=npts_half, radians=False)
+# path2 = geod_obj.npts(lon1=xlon, lat1=xlat, lon2=elon2, lat2=elat2, npts=npts_half, radians=False)
+# # flip one side of the path around
+# path1 = path1[::-1]
+# # concatenate the path along with the mid-point and end points
+# path = [(elon1,elat1)] + path1 + [(xlon,xlat)] + path2 + [(elon2,elat2)]
+# # extract separate arrays for lat and lon values
+# path_lon = [p[0] for p in path]
+# path_lat = [p[1] for p in path]
+# # calculate a coordinate for other variables using the distance from the mid-point
+# # path_dist = calc_dist_array(xlat,xlon,path_lat,path_lon)
+# (path_dist,path_bear) = calc_dist_bear_array(xlat,xlon,path_lat,path_lon)
+# path_coord = xr.DataArray(path_dist,dims='path_coord')
+# path_coord = xr.where(path_bear<0,path_coord*-1,path_coord)
 
-   bearing = bearing * rad_to_deg
-   return bearing
-#---------------------------------------------------------------------------------------------------
-@numba.njit()
-def calc_dist_array(lat,lon,center_lat,center_lon):
-  ncol = len(center_lat)
-  dist = np.zeros(ncol)
-  for n in range(ncol):
-    dist[n] = calc_great_circle_distance(lat,center_lat[n],lon,center_lon[n])
-  return dist
-#---------------------------------------------------------------------------------------------------
-@numba.njit()
-def calc_dist_bear_array(lat,lon,center_lat,center_lon):
-  ncol = len(center_lat)
-  dist = np.zeros(ncol)
-  bear = np.zeros(ncol)
-  for n in range(ncol):
-    dist[n] = calc_great_circle_distance(lat,center_lat[n],lon,center_lon[n])
-    bear[n] = calc_great_circle_bearing(lat,center_lat[n],lon,center_lon[n])
-  return (dist,bear)
-#---------------------------------------------------------------------------------------------------
-@numba.njit()
-def find_closest_cells(lat,lon,center_lat,center_lon,num_cells=1):
-  dist = calc_dist_array(lat,lon,center_lat,center_lon)
-  min_dist_ncol = np.argsort(dist)[0:num_cells]
-  return min_dist_ncol
-#---------------------------------------------------------------------------------------------------
-@numba.njit()
-def find_closest_cells_and_dist(lat,lon,center_lat,center_lon,num_cells=1):
-  dist = calc_dist_array(lat,lon,center_lat,center_lon)
-  min_dist_ncol = np.argsort(dist)[0:num_cells]
-  return ( min_dist_ncol, dist[min_dist_ncol] )
-#-----------------------------------------------------------------------------
-@numba.njit()
-def interpolate_to_path(npts,nlev,ncll,data,path_lat,path_lon,center_lat,center_lon):
-  data_interp = np.zeros((npts,nlev))
-  for n in range(npts):
-    (min_dist_ncol,min_dist_val) = find_closest_cells_and_dist(path_lat[n],path_lon[n],center_lat,center_lon,num_cells=ncll)
-    ncol_idx = min_dist_ncol[:ncll]
-    wgt = min_dist_val[:ncll]
-    for k in range(nlev):
-      data_interp[n,k] = np.sum( data[ncol_idx,k] * wgt ) / np.sum(wgt)
-  return data_interp
+# npts = len(path_lat)
 #---------------------------------------------------------------------------------------------------
 # define path outward from a given center location
-
-# Calculate bearing between tangent and instrument locations 
-bearing1 = calc_great_circle_bearing(lat1_in=xlat,lat2_in=slat,lon1_in=xlon,lon2_in=slon)
-bearing2 = bearing1+180
-if bearing2>360: bearing2 -= 360
-# define end points for each side of the path outward along the bearing
-elon1, elat1, back_azimuth = geod_obj.fwd(xlon, xlat, bearing1, dist_km/2.)
-elon2, elat2, back_azimuth = geod_obj.fwd(xlon, xlat, bearing2, dist_km/2.)
-# define points along each path segment
-npts_half = int((dist_km/2.)/path_spc_km)
-path1 = geod_obj.npts(lon1=xlon, lat1=xlat, lon2=elon1, lat2=elat1, npts=npts_half, radians=False)
-path2 = geod_obj.npts(lon1=xlon, lat1=xlat, lon2=elon2, lat2=elat2, npts=npts_half, radians=False)
-# flip one side of the path around
-path1 = path1[::-1]
-# concatenate the path along with the mid-point and end points
-path = [(elon1,elat1)] + path1 + [(xlon,xlat)] + path2 + [(elon2,elat2)]
-# extract separate arrays for lat and lon values
-path_lon = [p[0] for p in path]
-path_lat = [p[1] for p in path]
-# calculate a coordinate for other variables using the distance from the mid-point
-# path_dist = calc_dist_array(xlat,xlon,path_lat,path_lon)
-(path_dist,path_bear) = calc_dist_bear_array(xlat,xlon,path_lat,path_lon)
-path_coord = xr.DataArray(path_dist,dims='path_coord')
-path_coord = xr.where(path_bear<0,path_coord*-1,path_coord)
-
-npts = len(path_lat)
+(npts,path_coord,path_lat,path_lon) = calculate_path(xlat,xlon,slat,slon)
 
 #---------------------------------------------------------------------------------------------------
 # calculate path mid-point for map view
