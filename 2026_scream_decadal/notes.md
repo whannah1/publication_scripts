@@ -489,3 +489,32 @@ DST_DATA=
 MAP_FILE=files_maps/map_73x144_to_ne30pg2_traave.20260112.nc
 ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
 ```
+
+
+## remap ERA5 to 360x180
+
+```shell
+
+SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_n2s.nc
+DST_GRID=files_grid/cmip_180x360_scrip.nc
+MAP_FILE=files_maps/map_721x1440_to_180x360_traave.20260112.nc
+ncremap -a traave --src_grd=${SRC_GRID} --dst_grd=${DST_GRID} --map_file=${MAP_FILE}
+
+
+/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/ua_197901_201912.nc
+/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/va_197901_201912.nc
+/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/ta_197901_201912.nc
+/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/hus_197901_201912.nc
+/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/tro3_197901_201912.nc
+
+
+# FILE_NAME=ua_197901_201912
+# FILE_NAME=va_197901_201912
+FILE_NAME=ta_197901_201912
+# FILE_NAME=hus_197901_201912
+# FILE_NAME=tro3_197901_201912
+SRC_DATA=/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/${FILE_NAME}.nc
+DST_DATA=/pscratch/sd/w/whannah/Obs/ERA5/e3sm_diags_remap/${FILE_NAME}.remap_180x360.nc
+MAP_FILE=files_maps/map_721x1440_to_180x360_traave.20260112.nc
+ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
+```
