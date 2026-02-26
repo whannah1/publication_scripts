@@ -3,7 +3,7 @@ case_root = '/pscratch/sd/w/whannah/scream_scratch/pm-gpu'
 #-------------------------------------------------------------------------------
 '''
 python -i
-exec( open( 'code/FXX-curtain-v1.py' ).read() )
+exec( open( 'code/FXX-hovmoller-v1.py' ).read() )
 '''
 #-------------------------------------------------------------------------------
 case_opts_list = []
@@ -18,12 +18,12 @@ def add_case(case_in,**kwargs):
     case_opts_list.append(tmp_opts)
 #-------------------------------------------------------------------------------
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
-add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
 # add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
-# add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
-# add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
-# add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
+add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 # add_case('2025-SOHIP-RRM-00.256x3-ptgnia-v1.2023-06-13.19',       n='256x3-ptgnia-v1',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
 
@@ -41,8 +41,8 @@ htype_3D = 'output.scream.3D.10min.INSTANT.nmins_x10'
 
 # add_var('T_mid',obs_var='T',vstr='Temperature',htype=htype_3D)
 
-# add_var('T_mid',      vstr='Temperature', htype=htype_3D)
-add_var('horiz_winds',vstr='wind speed', htype=htype_3D)
+add_var('T_mid',      vstr='Temperature', htype=htype_3D)
+# add_var('horiz_winds',vstr='wind speed', htype=htype_3D)
 
 # add_var('ps')
 # add_var('omega')
@@ -52,11 +52,7 @@ add_var('horiz_winds',vstr='wind speed', htype=htype_3D)
 
 #-------------------------------------------------------------------------------
 
-fig_file = 'figs/FXX-curtain-v1.png'
-
-path_len_km = 1200   # total path distance [km]
-path_spc_km = 2      # path point spacing [km]
-path_ncells = 1      # number of cells to average for each path point
+fig_file = 'figs/FXX-hovmoller-v1.png'
 
 # first_file,num_files = -1,1
 
@@ -69,6 +65,8 @@ var_x_case  = False
 # num_plot_col = int(np.sqrt(len(case_list)))
 # use_common_label_bar = True
 
+target_heights = np.arange(20e3,55e3+250,200)
+
 #---------------------------------------------------------------------------------------------------
 if case_list==[]: raise ValueError('ERROR - case list is empty!')
 num_var,num_case = len(var_list),len(case_list)
@@ -78,25 +76,6 @@ num_var,num_case = len(var_list),len(case_list)
 fdx,fdy=10,15;figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
 fig = plt.figure(figsize=figsize)
 #---------------------------------------------------------------------------------------------------
-#---------------------------------------------------------------------------
-# create the path between ISS and tangent positions
-print('\ncreating path data...')
-path_lat   = [None]*num_case
-path_lon   = [None]*num_case
-path_npts  = [None]*num_case
-path_coord = [None]*num_case
-for c in range(num_case):
-    case_opts = case_opts_list[c]
-    slat,slon = float(case_opts['slat']),float(case_opts['slon'])
-    tlat,tlon = float(case_opts['tlat']),float(case_opts['tlon'])
-    # define path outward from a given center location
-    (path_npts[c],path_coord[c],path_lat[c],path_lon[c]) = calculate_path( tlat, tlon, slat, slon, path_len_km, path_spc_km )
-    print()
-    print(f'  case: {case_list[c]}')
-    print(f'    path_npts : {path_npts[c]}')
-    print(f'    path_lat  : {np.min(path_lat[c])}  -  {np.max(path_lat[c])}')
-    print(f'    path_lon  : {np.min(path_lon[c])}  -  {np.max(path_lon[c])}')
-print()
 #---------------------------------------------------------------------------------------------------
 for v in range(num_var):
     var_opts = var_opts_list[v]
@@ -110,7 +89,7 @@ for v in range(num_var):
         case_root = case_opts['p']
         case_sub  = case_opts['s']
         #-----------------------------------------------------------------------
-       # read the data
+        # read the data
         htype = var_opts['htype']
         file_path = f'{case_root}/{case_list[c]}/{case_sub}/*{htype}*'
         
@@ -129,11 +108,17 @@ for v in range(num_var):
         target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
         file_list = reduce_file_list_to_target_time(file_list_all,target_time)
         #-----------------------------------------------------------------------
-        # for f in file_list: print(f'    {hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
+        # expand list of files
+        for i,f in enumerate(file_list_all):
+            if f==file_list[0]: break
+        file_list = file_list_all[i-1:i+1+1]
+        #-----------------------------------------------------------------------
+        print()
+        for f in file_list: print(' '*6+f'{hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
         #-----------------------------------------------------------------------
         # ds = ux.open_mfdataset(case_opts['g'], file_list, data_vars='all')
         ds = xr.open_mfdataset(file_list, data_vars='all')
-        ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+        # ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
         #-----------------------------------------------------------------------
         data = ds[var_list[v]]
         zmid = ds['z_mid']
@@ -145,44 +130,25 @@ for v in range(num_var):
         if 'unit_fac' in var_opts:
             data = data * var_opts['unit_fac']
         #-----------------------------------------------------------------------
-        # Define mask limits
-        mdx = 12
-        mlat1,mlat2 = case_opts['tlat']-mdx/2., case_opts['tlat']+mdx/2.
-        mlon1,mlon2 = case_opts['tlon']-mdx/2., case_opts['tlon']+mdx/2.
-        # if mlon1<0: mlon1 = (mlon1+360)%360
-        # if mlon2<0: mlon2 = (mlon2+360)%360
+        tlat,tlon = float(case_opts['tlat']),float(case_opts['tlon'])
+        # data = data.sel(lat=tlat, lon=tlon, method="nearest")
+        # zmid = zmid.sel(lat=tlat, lon=tlon, method="nearest")
+        min_dist_ncol = find_closest_cells(tlat,tlon,data['lat'].values,data['lon'].values,num_cells=1)
         #-----------------------------------------------------------------------
-        print('\n'+' '*4+'creating mask...')
-        lat,lon = data['lat'],data['lon']
-        mask = xr.ones_like(lat,dtype=bool)
-        mask = mask & (lat>=mlat1) & (lat<=mlat2)
-        mask = mask & (lon>=mlon1) & (lon<=mlon2)
-        mask.load()
+        data = data.isel(ncol=min_dist_ncol[0],drop=True)
+        zmid = zmid.isel(ncol=min_dist_ncol[0],drop=True)
         #-----------------------------------------------------------------------
-        print('\n'+' '*4+'applying mask...')
-        data = data.where(mask,drop=True)
-        zmid = zmid.where(mask,drop=True)
-        #-----------------------------------------------------------------------
-        # print(); print(data); #exit()
-        #-----------------------------------------------------------------------
-        # interpolate data to path
-        data_interp = interpolate_to_path( path_npts[c], len(data['lev']), path_ncells, data, 
-                                           path_lat[c], path_lon[c], path_coord[c],
-                                           data['lat'].values, data['lon'].values )
-        #-----------------------------------------------------------------------
-        # inteprolate height data to path
-        zmid_interp = interpolate_to_path( path_npts[c], len(data['lev']), path_ncells, zmid, 
-                                           path_lat[c], path_lon[c], path_coord[c],
-                                           zmid['lat'], zmid['lon'] )
+        # print(); print(data)#; exit()
         #-----------------------------------------------------------------------
         # interpolate to height coordinate
-        target_heights = np.arange(20e3,55e3+250,200)
-        data_interp_hgt = hapy.interp_to_height( data_interp, zmid_interp, target_heights,
+        data_interp_hgt = hapy.interp_to_height( data, zmid, target_heights,
                                                  lev_dim='lev', height_dim='height',extrapolate=False)
         #-----------------------------------------------------------------------
         # print(); print(data_interp_hgt); exit()
         #-----------------------------------------------------------------------
         if print_stats: hapy.print_stat(data_interp_hgt,name=var_list[v],stat='naxsh',indent=' '*4,compact=True)
+        #-----------------------------------------------------------------------
+        data_interp_hgt = data_interp_hgt - data_interp_hgt.mean(dim='time')
         #-----------------------------------------------------------------------
         data_list.append( data_interp_hgt )
     #-----------------------------------------------------------------------------------------------
@@ -233,20 +199,40 @@ for v in range(num_var):
         ax = fig.add_subplot(d1,d2,ip)        
 
         ax.set_title(case_opts['n'],    fontsize=20, loc='left')
-        ax.set_title(case_opts['xtime'],fontsize=20, loc='center')
+        # ax.set_title(case_opts['xtime'],fontsize=20, loc='center')
         ax.set_title(var_opts['vstr'],  fontsize=20, loc='right')
 
         data = data_list[c].values
         hgth = data_list[c]['height'].values
-        contour = ax.contourf(path_coord[c], hgth, data.T, **img_kwargs)
+        
+        time_vals = data_list[c]['time'].values
+        time_idx    = np.arange(len(time_vals))
+        time_labels = [t.strftime('%m/%d %H:%M') for t in time_vals]
+
+
+        contour = ax.contourf(time_idx, hgth, data.T, **img_kwargs)
         ax.set_box_aspect(0.6)
+
+        tsec_diff_list = []
+        for i,t in enumerate(time_vals):
+            tsec_diff = abs((t - target_time).total_seconds())
+            tsec_diff_list.append(tsec_diff)
+        tsec_diff_min_index = min(range(len(tsec_diff_list)), key=lambda i: tsec_diff_list[i])
+
+        line_x = np.array([tsec_diff_min_index,tsec_diff_min_index])
+        line_y = np.array([min(hgth),max(hgth)])
+        ax.plot(line_x, line_y, color='black', linewidth=1)
+
+        tick_stride = max(1, len(time_idx) // 20)
+        ax.set_xticks(time_idx[::tick_stride])
+        ax.set_xticklabels(time_labels[::tick_stride], rotation=45, ha='right')
 
         cbar = fig.colorbar(contour, ax=ax, fraction=0.02, orientation='vertical')
         cbar.ax.tick_params(labelsize=15)
 
 #---------------------------------------------------------------------------------------------------
 # Finalize plot
-fig.savefig(fig_file, dpi=100, bbox_inches='tight')
+fig.savefig(fig_file, dpi=200, bbox_inches='tight')
 plt.close(fig)
 
 print(f'\n{fig_file}\n')

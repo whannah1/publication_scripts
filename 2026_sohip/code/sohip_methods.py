@@ -18,14 +18,17 @@ grid_root = '/global/cfs/cdirs/m4842/whannah/files_grid'
 def calc_great_circle_distance(lat1,lat2,lon1,lon2):
     '''
     input should be in degrees
+    output will be in km
     '''
     dlon = lon2 - lon1
     cos_dist = np.sin(lat1*deg_to_rad)*np.sin(lat2*deg_to_rad) + \
                         np.cos(lat1*deg_to_rad)*np.cos(lat2*deg_to_rad)*np.cos(dlon*deg_to_rad)
     # print( str(cos_dist.min()) +"   "+ str(cos_dist.max()) )
+    # cos_dist = np.clip(cos_dist, -1.0, 1.0) # this doesn't work with my current version of numba
     cos_dist = np.where(cos_dist> 1.0, 1.0,cos_dist)
     cos_dist = np.where(cos_dist<-1.0,-1.0,cos_dist)
-    dist = np.arccos( cos_dist )
+    EARTH_RADIUS_KM = 6371.0  # mean radius in km
+    dist = np.arccos( cos_dist ) * EARTH_RADIUS_KM
     return dist
 #---------------------------------------------------------------------------------------------------
 @numba.njit
@@ -77,7 +80,17 @@ def find_closest_cells_and_dist(lat,lon,center_lat,center_lon,num_cells=1):
     return ( min_dist_ncol, dist[min_dist_ncol] )
 #---------------------------------------------------------------------------------------------------
 @numba.njit()
-def interpolate_to_path(npts,nlev,ncll,data,path_lat,path_lon,center_lat,center_lon):
+def find_path_ncol_wgt( npts, nlev, ncll, path_lat, path_lon, center_lat, center_lon ):
+    ncol_idx = np.zeros(npts)
+    dist_wgt = np.zeros(npts)
+    for n in range(npts):
+        (min_dist_ncol,min_dist_val) = find_closest_cells_and_dist(path_lat[n],path_lon[n],center_lat,center_lon,num_cells=ncll)
+        ncol_idx[n] = min_dist_ncol[:ncll]
+        dist_wgt[n] = min_dist_val[:ncll]
+    return data_interp
+#---------------------------------------------------------------------------------------------------
+@numba.njit()
+def interpolate_to_path_numba( npts, nlev, ncll, data, path_lat, path_lon, center_lat, center_lon ):
     data_interp = np.zeros((npts,nlev))
     for n in range(npts):
         (min_dist_ncol,min_dist_val) = find_closest_cells_and_dist(path_lat[n],path_lon[n],center_lat,center_lon,num_cells=ncll)
@@ -86,6 +99,32 @@ def interpolate_to_path(npts,nlev,ncll,data,path_lat,path_lon,center_lat,center_
         for k in range(nlev):
             data_interp[n,k] = np.sum( data[ncol_idx,k] * wgt ) / np.sum(wgt)
     return data_interp
+#---------------------------------------------------------------------------------------------------
+# def interpolate_to_path(npts,nlev,ncll,data_in,path_lat,path_lon,path_coord,lev_coord,center_lat,center_lon):
+#     data_interp = interpolate_to_path_numba(npts,nlev,ncll,data_in,path_lat,path_lon,center_lat,center_lon)
+#     coords_out = {'path_coord':path_coord}
+#     if 'lev' in data_in.dims: coords_out['lev'] = data_in['lev']
+#     data_interp = xr.DataArray(data_interp,coords=coords_out)
+#     return data_interp
+#---------------------------------------------------------------------------------------------------
+def interpolate_to_path(npts, nlev, ncll, data_in, path_lat, path_lon, path_coord, center_lat, center_lon):
+    is_dataarray = isinstance(data_in, xr.DataArray)
+    data_values = data_in.values if is_dataarray else data_in
+
+    center_lat_values = center_lat.values if isinstance(center_lat, xr.DataArray) else center_lat
+    center_lon_values = center_lon.values if isinstance(center_lon, xr.DataArray) else center_lon
+
+    data_interp = interpolate_to_path_numba(npts, nlev, ncll, data_values,
+                                            path_lat, path_lon,
+                                            center_lat_values, center_lon_values)
+
+    coords_out = {'path_coord': path_coord}
+    if is_dataarray and 'lev' in data_in.dims:
+        coords_out['lev'] = data_in['lev']
+    elif lev_coord is not None and data_interp.ndim == 2:
+        coords_out['lev'] = lev_coord
+
+    return xr.DataArray(data_interp, coords=coords_out)
 #---------------------------------------------------------------------------------------------------
 # define path outward from a given center location
 ''' usage notes

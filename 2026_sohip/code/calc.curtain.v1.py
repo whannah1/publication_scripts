@@ -3,7 +3,6 @@ case_root = '/pscratch/sd/w/whannah/scream_scratch/pm-gpu'
 #---------------------------------------------------------------------------------------------------
 '''
 salloc --nodes 1 --qos interactive --time 04:00:00 --constraint cpu --account=e3sm
-module load python
 source activate ux_env
 time python code/calc.curtain.v1.py
 '''
@@ -51,22 +50,14 @@ add_var('T_mid')
 
 #---------------------------------------------------------------------------------------------------
 
-fig_file = 'figs/FXX-curtain-v1.png'
-
 path_len_km = 1200   # total path distance [km]
 path_spc_km = 2      # spacing between interpolated path points [km]
 path_ncells = 2      # number of cells to consider nearest to each point (ncll)
-
-# first_file,num_files = -1,1
 
 #---------------------------------------------------------------------------------------------------
 
 print_stats = False
 var_x_case  = False
-# plot_diff   = False
-
-# num_plot_col = int(np.sqrt(len(case_list)))
-# use_common_label_bar = True
 
 #---------------------------------------------------------------------------------------------------
 if case_list==[]: raise ValueError('ERROR - case list is empty!')
@@ -82,7 +73,7 @@ for c in range(num_case):
     # path_lat, path_lon, path_npts, path_coord = [None]*num_case, [None]*num_case, [None]*num_case, [None]*num_case
     slat,slon = float(case_opts['slat']),float(case_opts['slon'])
     tlat,tlon = float(case_opts['tlat']),float(case_opts['tlon'])
-    # define path outward from a given center location
+    # define path outward from location of tangent point
     (path_npts,path_coord,path_lat,path_lon) = calculate_path( tlat, tlon, slat, slon, path_len_km, path_spc_km )
     print()
     print(f'  path_len_km  : {path_len_km}')
@@ -95,24 +86,42 @@ for c in range(num_case):
     # read the data
     file_path = f'{case_root}/{case_list[c]}/{case_sub}/*{htype}*'
     
-    file_list = sorted(glob.glob(file_path))
-    if 'first_file' in locals(): file_list = file_list[first_file:]
-    if 'num_files'  in locals(): file_list = file_list[:num_files]
+    file_list_all = sorted(glob.glob(file_path))
+    if 'first_file' in locals(): file_list_all = file_list[first_file:]
+    if 'num_files'  in locals(): file_list_all = file_list[:num_files]
 
-    if file_list==[]:
+    # for f in file_list_all: print(' '*6+f'{hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
+
+    if file_list_all==[]:
         print(); print('ERROR - file_list is empty!')
         print(); print(f'file_path: {file_path}')
         print()
-    #---------------------------------------------------------------------------
+    #-----------------------------------------------------------------------
     dt = datetime.datetime.strptime(case_opts['xtime'], '%Y-%m-%d %H:%M')
     target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
-    file_list = reduce_file_list_to_target_time(file_list,target_time)
+    file_list = reduce_file_list_to_target_time(file_list_all,target_time)
+    #-----------------------------------------------------------------------
+    # # expand list of files
+    # for i,f in enumerate(file_list_all):
+    #     if f==file_list[0]: break
+    # file_list = file_list_all[i-1:i+1+1]
     #---------------------------------------------------------------------------
-    for f in file_list: print(f'    {hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
+    print()
+    for f in file_list: print(' '*6+f'{hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
     #---------------------------------------------------------------------------
-    # ds = ux.open_mfdataset(case_opts['g'], file_list, data_vars='all')
     ds = xr.open_mfdataset(file_list, data_vars='all')
-    ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+    # ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+    #---------------------------------------------------------------------------
+    # find ncol indives and distance weighting for path interpolation
+    (ncol_idx, dist_wgt) = find_path_ncol_wgt( path_npts, len(data['lev']), path_ncells, data, 
+                                               path_lat, path_lon, path_coord,
+                                               ds['lat'].values, ds['lon'].values )
+    print()
+    print(ncol_idx)
+    print()
+    print(dist_wgt)
+    print()
+    exit()
     #---------------------------------------------------------------------------
     for v in range(num_var):
         var_opts = var_opts_list[v]
@@ -126,6 +135,7 @@ for c in range(num_case):
         # print(); print(tmp_file); exit()
         #-----------------------------------------------------------------------
         data = ds[var_list[v]]
+        zmid = ds['z_mid']
         #-----------------------------------------------------------------------
         # adjust units
         if 'unit_fac' in var_opts:
@@ -147,27 +157,40 @@ for c in range(num_case):
         #-----------------------------------------------------------------------
         print('\n'+' '*4+'applying mask...')
         data = data.where(mask,drop=True)
+        zmid = zmid.where(mask,drop=True)
         #-----------------------------------------------------------------------
-        print(); print(data); #exit()
+        print()
+        print(data)
+        print()
+        # exit()
         #-----------------------------------------------------------------------
         # interpolate data to path
-        # data.load()
-        data_interp = interpolate_to_path( path_npts, len(data['lev']), path_ncells, data.values, 
-                                           path_lat, path_lon, 
+        data_interp = interpolate_to_path( path_npts, len(data['lev']), path_ncells, data, 
+                                           path_lat, path_lon, path_coord,
                                            data['lat'].values, data['lon'].values )
-        data_interp = xr.DataArray(data_interp,coords={'path_coord':path_coord,'lev':data['lev']})
+        #-----------------------------------------------------------------------
+        # inteprolate height data to path
+        zmid_interp = interpolate_to_path( path_npts, len(data['lev']), path_ncells, zmid, 
+                                           path_lat, path_lon, path_coord,
+                                           zmid['lat'], zmid['lon'] )
         #-----------------------------------------------------------------------
         # interpolate to height coordiante
-        # ????
+        target_heights = np.arange(20e3,55e3+250,200)
+        data_interp_hgt = hapy.interp_to_height( data_interp, zmid_interp, target_heights,
+                                                 lev_dim='lev', height_dim='height',extrapolate=False)
+        
         #-----------------------------------------------------------------------
-        print(); print(data_interp); exit()
+        if print_stats: hapy.print_stat(data_interp_hgt,name=var_list[v],stat='naxsh',indent=' '*4,compact=True)
         #-----------------------------------------------------------------------
-        if print_stats: hapy.print_stat(data_interp,name=var_list[v],stat='naxsh',indent=' '*4,compact=True)
+        print()
+        print(data_interp_hgt)
+        print()
+        exit()
         #-----------------------------------------------------------------------
         # write to file
         print(); print(f'  writing file...  => {tmp_file}')
         ds_tmp = xr.Dataset()
-        ds_tmp[var_list[v]]   = data_interp
+        ds_tmp[var_list[v]]   = data_interp_hgt
         ds_tmp['path_lat']    = path_lat
         ds_tmp['path_lon']    = path_lon
         ds_tmp.attrs['path_len_km'] = path_len_km
