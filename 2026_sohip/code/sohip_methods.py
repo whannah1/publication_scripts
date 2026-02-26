@@ -1,5 +1,6 @@
 import os, re, copy, string, glob, subprocess as sp, numba
 import numpy as np
+import xarray as xr
 import uxarray as ux
 import cmocean
 import datetime, cftime
@@ -96,8 +97,8 @@ def calculate_path(xlat,xlon,slat,slon,path_len_km,path_spc_km):
     bearing2 = bearing1+180
     if bearing2>360: bearing2 -= 360
     # define end points for each side of the path outward along the bearing
-    elon1, elat1, back_azimuth = geod_obj.fwd(xlon, xlat, bearing1, path_len_km/2.)
-    elon2, elat2, back_azimuth = geod_obj.fwd(xlon, xlat, bearing2, path_len_km/2.)
+    elon1, elat1, back_azimuth = geod_obj.fwd(xlon, xlat, bearing1, path_len_km*1e3/2.)
+    elon2, elat2, back_azimuth = geod_obj.fwd(xlon, xlat, bearing2, path_len_km*1e3/2.)
     # define points along each path segment
     npts_half = int((path_len_km/2.)/path_spc_km)
     path1 = geod_obj.npts(lon1=xlon, lat1=xlat, lon2=elon1, lat2=elat1, npts=npts_half, radians=False)
