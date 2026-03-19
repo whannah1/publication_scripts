@@ -7,29 +7,36 @@ def add_case(case_in,**kwargs):
     case_list.append(case_in)
     tmp_opts = {}
     for k, val in kwargs.items(): tmp_opts[k] = val
-    tmp_opts['g'] = get_grid_file(case_in)
+    if 'g' not in tmp_opts:
+        tmp_opts['g'] = get_grid_file(case_in)
     tmp_opts['p'] = case_root
     tmp_opts['s'] = 'run'
     case_opts_list.append(tmp_opts)
 #-------------------------------------------------------------------------------
+imerg_grid = '/pscratch/sd/w/whannah/e3sm_scratch/files_grid/IMERG_1800x3600_scrip.nc'
+imerg_root = '/global/cfs/cdirs/m4842/whannah/IMERG/hourly_hdf'
+# imerg_root = '/global/cfs/cdirs/m4842/whannah/IMERG/hourly_netcdf'
+
+# file_list = sorted(glob.glob(f'{imerg_root}/*'))
+# for f in file_list:
+#     os.system(f'ncdump -k {f}')
+# exit()
+
+# add_case('IMERG',n='IMERG',xtime='2023-06-19 21:00',g=imerg_grid,xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
+# add_case('IMERG',n='IMERG',xtime='2023-06-21 21:00',g=imerg_grid,xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+# add_case('IMERG',n='IMERG',xtime='2023-06-14 02:00',g=imerg_grid,xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  -51.66,slon=   -28.91)
+# add_case('IMERG',n='IMERG',xtime='2023-06-21 15:00',g=imerg_grid,xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
+# add_case('IMERG',n='IMERG',xtime='2023-06-15 04:00',g=imerg_grid,xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+# add_case('IMERG',n='IMERG',xtime='2023-06-13 04:00',g=imerg_grid,xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+add_case('IMERG',n='IMERG',xtime='2023-06-12 19:00',g=imerg_grid,xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
-add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  -51.66,slon=   -28.91)
+# add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  -51.66,slon=   -28.91)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
 # add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
-
-# add_case('2025-SOHIP-RRM-00.256x3-eq-ind-v1.2023-06-19.09',       n='256x3-eq-ind-v1',xlat=-5, xlon=  80,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
-# add_case('2025-SOHIP-RRM-00.256x3-eq-ind-v1.2023-06-21.02',       n='256x3-eq-ind-v1',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
-# add_case('2025-SOHIP-RRM-00.256x3-ptgnia-v1.2023-06-13.19',       n='256x3-ptgnia-v1',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
-# add_case('2025-SOHIP-RRM-00.256x3-sc-ind-v1.2023-06-21.09',       n='256x3-sc-ind-v1',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
-# add_case('2025-SOHIP-RRM-00.256x3-sc-pac-v1.2023-06-14.15',       n='256x3-sc-pac-v1',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
-# add_case('2025-SOHIP-RRM-00.256x3-se-pac-v1.2023-06-12.16',       n='256x3-se-pac-v1',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-# add_case('2025-SOHIP-RRM-00.256x3-sw-ind-v1.2023-06-12.06',       n='256x3-sw-ind-v1',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
-
-add_obs = True
+add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 alt_subplot_method = True # set to true for viewing multiple model cases with different projections
 
@@ -45,7 +52,6 @@ dx,dy = 40,20
 htype_2D = 'output.scream.2D.10min.INSTANT.nmins_x10'
 htype_3D = 'output.scream.3D.10min.INSTANT.nmins_x10'
 # first_file,num_files = -1,1
-use_snapshot,ss_t = False,-1
 
 #-------------------------------------------------------------------------------
 var,var_str,plev_list,klev_list = [],[],[],[]
@@ -61,42 +67,17 @@ def add_var(var_name,vstr=None,plev=None,klev=None,unit_fac=None,obs_var=None,ht
     htype_list.append(htype)
 #-------------------------------------------------------------------------------
 
+add_var('precip_total_surf_mass_flux', vstr='precip',unit_fac=86400*1e3,htype=htype_2D)
 
-
-
-# add_var('ps')
-# add_var('precip_total_surf_mass_flux', vstr='precip',unit_fac=86400*1e3,htype=htype_2D)
-# add_var('VapWaterPath',htype=htype_2D)
-# add_var('wind_speed_10m')
-
-# add_var('T_mid',obs_var='T',vstr='1mb Temperature',plev=1e2,htype=htype_3D)
-# add_var('T_mid',obs_var='T',vstr='10mb Temperature',plev=10e2,htype=htype_3D)
-add_var('T_mid',obs_var='T',vstr='100mb Temperature',plev=100e2,htype=htype_3D)
-
-# add_var('LiqWaterPath')
-# add_var('IceWaterPath')
-# add_var('surf_sens_flux')
-# add_var('surface_upward_latent_heat_flux')
-# add_var('SW_flux_up_at_model_top')
-# add_var('SW_flux_dn_at_model_top')
-# add_var('LW_flux_up_at_model_top')
-
-fig_file = 'figs/FXX-map.png'
+fig_file = 'figs/FXX-map-precip.png'
 
 #-------------------------------------------------------------------------------
-use_remap,remap_grid = False,'90x180' # 90x180 / 180x360
-
 print_stats = True
-
-var_x_case = False
-
+var_x_case = True
 plot_diff = False
 
-num_plot_col = int(np.sqrt(len(case_list)))
-
-use_common_label_bar = True
-
-if use_snapshot: print(); print(f'{hapy.tclr.RED}WARNING - snapshot mode enabled! (ss_t={ss_t}){hapy.tclr.END}'); print()
+# num_plot_col = int(np.sqrt(len(case_list)))
+# use_common_label_bar = True
 
 #---------------------------------------------------------------------------------------------------
 # Set up plot resources
@@ -108,35 +89,14 @@ num_var,num_case = len(var),len(case_list)
 (d1,d2) = (num_var,num_case) if var_x_case else (num_case,num_var)
 
 fdx,fdy=15,10;figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
-# figsize = (30,30)
-# figsize = (10,10)
 
 if alt_subplot_method:
     fig = plt.figure(figsize=figsize,layout="constrained")
 else:
     ctr_lon = case_opts_list[0]['xlon']
     proj_plot = ccrs.PlateCarree(central_longitude=ctr_lon)
-    fig,axs = plt.subplots(d1,d2,figsize=figsize,layout="constrained",squeeze=False,subplot_kw={'projection':proj_plot})
-
-#---------------------------------------------------------------------------------------------------
-def get_comp(case):
-    comp = 'scream'
-    return comp
-#---------------------------------------------------------------------------------------------------
-def get_ctr_str(glb_avg=None): return ''
-# def get_ctr_str(glb_avg=None):
-#    ctr_str = ''
-#    if 'lat1' in globals():
-#       lat1_str = f'{lat1}N' if lat1>=0 else f'{(lat1*-1)}S'
-#       lat2_str = f'{lat2}N' if lat2>=0 else f'{(lat2*-1)}S'
-#       ctr_str += f' {lat1_str}:{lat2_str} '
-#    if 'lon1' in globals():
-#       lon1_str = f'{lon1}E' #if lon1>=0 and lon1<=360 else f'{(lon1*-1)}S'
-#       lon2_str = f'{lon2}E' #if lon2>=0 and lon2<=360 else f'{(lon2*-1)}S'
-#       ctr_str += f' {lon1_str}:{lon2_str} '
-#    # if glb_avg is not None:
-#    #    # add logic here t display global average value?
-#    return ctr_str
+    fig,axs = plt.subplots( d1,d2,figsize=figsize,layout="constrained",squeeze=False,
+                            subplot_kw={'projection':proj_plot})
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 path_lat = [None]*num_case
@@ -145,7 +105,6 @@ for v in range(num_var):
     hapy.print_line()
     print('  var: '+hapy.tclr.MAGENTA+var[v]+hapy.tclr.END)
     data_list,lat_list,lon_list = [],[],[]
-    glb_avg_list = []
     std_list,cnt_list = [],[]
     for c in range(num_case):
         print('    case: '+hapy.tclr.GREEN+case_list[c]+hapy.tclr.END)
@@ -154,11 +113,14 @@ for v in range(num_var):
         case_sub  = case_opts['s']
         #-------------------------------------------------------------------------
         # read the data
-        file_path = f'{case_root}/{case_list[c]}/{case_sub}/*{htype_list[v]}*'
-        
-        file_list = sorted(glob.glob(file_path))
-        if 'first_file' in locals(): file_list = file_list[first_file:]
-        if 'num_files'  in locals(): file_list = file_list[:num_files]
+        if case_list[c]=='IMERG':
+            file_path = f'{imerg_root}/3B-HHR.MS.MRG.3IMERG.2023*'
+            file_list = sorted(glob.glob(file_path))
+        else:
+            file_path = f'{case_root}/{case_list[c]}/{case_sub}/*{htype_list[v]}*'
+            file_list = sorted(glob.glob(file_path))
+            if 'first_file' in locals(): file_list = file_list[first_file:]
+            if 'num_files'  in locals(): file_list = file_list[:num_files]
 
         if file_list==[]:
             print(); print('ERROR - file_list is empty!')
@@ -166,32 +128,35 @@ for v in range(num_var):
             print()
         #-----------------------------------------------------------------------
         dt = datetime.datetime.strptime(case_opts['xtime'], '%Y-%m-%d %H:%M')
-        target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
+        if case_list[c]=='IMERG':
+            target_time = cftime.DatetimeJulian(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
+        else:
+            target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
         file_list = reduce_file_list_to_target_time(file_list,target_time)
         #-----------------------------------------------------------------------
         for f in file_list: print(f'    {hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
         #-----------------------------------------------------------------------
-        ds = ux.open_mfdataset(case_opts['g'], file_list, data_vars='all')
+        kwargs = {}
+        if case_list[c]=='IMERG':
+            kwargs['group'] = 'Grid'
+            kwargs['engine'] = 'netcdf4'
+            # kwargs['use_cftime']=True
+        ds = ux.open_mfdataset(case_opts['g'], file_list, **kwargs)
         ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
         #-----------------------------------------------------------------------
+        # if case_list[c]=='IMERG':
+        #     actual_ds_time = ds.time_bnds.isel(nv=1).values
+        # else:
+        #     actual_ds_time = ds.time.values
+        # print()
+        # print(f'actual_ds_time: {actual_ds_time}')
+        # print()
+        #-----------------------------------------------------------------------
         tvar = var[v]
-        
-        # var_chk = var[v] in ds.variables
-        # if var[v]=='precip_total_surf_mass_flux' and not var_chk: tvar = 'precip_liq_surf_mass_flux'
-        # if var[v]=='horiz_winds_at_model_bot_u': tvar = 'horiz_winds_at_model_bot'
-        # if var[v]=='horiz_winds_at_model_bot_v': tvar = 'horiz_winds_at_model_bot'
-        # if var[v]=='RESTOM': tvar = 'SW_flux_dn_at_model_top'
-
-        data = ds[tvar]#.lon_to_180()
-        
-        # if var[v]=='precip_total_surf_mass_flux' and not var_chk: data = data + ds['precip_ice_surf_mass_flux']
-        # if var[v]=='horiz_winds_at_model_bot_u': data = data.isel(dim2=0)
-        # if var[v]=='horiz_winds_at_model_bot_v': data = data.isel(dim2=1)
-        # if var[v]=='RESTOM':
-        #    data = data - ds['SW_flux_up_at_model_top']
-        #    data = data - ds['LW_flux_up_at_model_top']
-
-        
+        if case_list[c]=='IMERG':
+            data = ds['precipitation'].stack(n_face=('lat','lon'))*24. # mm/hr to mm/day
+        else:
+            data = ds[tvar]#.lon_to_180()
         #-----------------------------------------------------------------------
         if 'lev' in data.dims:
             if klev_list[v] is     None and plev_list[v] is     None: raise ValueError('ERROR - no p/k level specified')
@@ -202,30 +167,17 @@ for v in range(num_var):
                 if len(data.plev)==1: data = data.isel(plev=0)
         #-----------------------------------------------------------------------
         # adjust units
-        if unit_fac_list[v] is not None: data = data * unit_fac_list[v]
+        if case_list[c]!='IMERG':
+            if unit_fac_list[v] is not None: data = data * unit_fac_list[v]
         #-----------------------------------------------------------------------
-        if add_obs:
-            obs_file_path = f'/global/cfs/projectdirs/m4842/whannah/ERA5/ERA5_validation.atm.*'
-            obs_file_list = sorted(glob.glob(obs_file_path))
-            obs_grid_file = f'/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_ERA5_721x1440.nc'
-            ds = ux.open_mfdataset(obs_grid_file, obs_file_list, data_vars='all')
+        # if add_obs:
+        #     obs_file_path = f'/global/cfs/projectdirs/m4842/whannah/ERA5/ERA5_validation.atm.*'
+        #     obs_file_list = sorted(glob.glob(obs_file_path))
+        #     obs_grid_file = f'/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_ERA5_721x1440.nc'
+        #     ds = ux.open_mfdataset(obs_grid_file, obs_file_list, data_vars='all')
         #-----------------------------------------------------------------------
         # print stats before time averaging
-        if print_stats:
-            hapy.print_stat(data,name=var[v],stat='naxsh',indent='    ',compact=True)
-        #-----------------------------------------------------------------------
-        # # average over time dimension
-        # if 'time' in data.dims : 
-        #    if use_snapshot:
-        #       data = data.isel(time=ss_t)
-        #    else:
-        #       data = data.mean(dim='time')
-        #-----------------------------------------------------------------------
-        # Calculate area weighted global mean
-        if 'area' in locals() :
-            gbl_mean = ( (data*area).sum() / area.sum() ).values 
-            print(hapy.tclr.CYAN+f'      Area Weighted Global Mean : {gbl_mean:6.4}'+hapy.tclr.END)
-            glb_avg_list.append(gbl_mean)
+        if print_stats: hapy.print_stat(data,name=var[v],stat='naxsh',indent='    ',compact=True)
         #-----------------------------------------------------------------------
         data_list.append( data )
 
@@ -312,13 +264,16 @@ for v in range(num_var):
         ax.set_title(case_opts['n'],    fontsize=20, loc='left')
         ax.set_title(case_opts['xtime'],fontsize=20, loc='center')
         ax.set_title(var_str[v],        fontsize=20, loc='right')
+        
         # ax.set_global()
+
         ax.set_extent( [ctr_lon-dx, \
                         ctr_lon+dx, \
                         max(-90,ctr_lat-dy), \
                         min( 90,ctr_lat+dy)], \
                         crs=ccrs.PlateCarree() )
 
+        
         raster = data_list[c].to_raster(ax=ax)
         img = ax.imshow(raster, extent=ax.get_xlim()+ax.get_ylim(), **img_kwargs)
 

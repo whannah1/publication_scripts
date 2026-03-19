@@ -10,6 +10,18 @@
 2023-06-21 21:00 - Equatorial Indian Ocean
 ```
 
+# Curtain Interpolated Data
+
+```shell
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-eq-ind-v1.2023-06-19_21_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-eq-ind-v1.2023-06-21_21_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-ptgnia-v1.2023-06-14_02_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-sc-ind-v1.2023-06-21_15_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-sc-pac-v1.2023-06-15_04_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-se-pac-v1.2023-06-13_04_00.curtain.ncells_2.len_1200.spc_2.nc
+/global/cfs/cdirs/m4842/whannah/curtain_data/256x2-sw-ind-v1.2023-06-12_19_00.curtain.ncells_2.len_1200.spc_2.nc
+```
+
 # ERA5 validation data
 
 ```shell
@@ -63,4 +75,10 @@ python -u ~/HICCUP/get_validation_data.ERA5.py --start-date=20230617 --final-dat
 # python -u ~/HICCUP/get_validation_data.ERA5.py --start-date=20230622 --data-freq=1h --output-root=/global/cfs/projectdirs/m4842/whannah/ERA5
 
 
+```
+
+# IMERG grid file
+
+```shell
+ncremap -G ttl='Equi-Angular grid 0.1x0.1 deg'#latlon=1800,3600#lat_typ=uni#lon_typ=180_wst -g /pscratch/sd/w/whannah/e3sm_scratch/files_grid/IMERG_1800x3600_scrip.nc
 ```

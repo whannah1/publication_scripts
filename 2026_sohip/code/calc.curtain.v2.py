@@ -15,12 +15,12 @@ def add_case(case_in,**kwargs):
     for k, val in kwargs.items(): tmp_opts[k] = val
     tmp_opts['g'] = get_grid_file(case_in)
     tmp_opts['p'] = case_root
-    tmp_opts['s'] = 'run'
+    tmp_opts['s'] = 'data_reduced'
     case_opts_list.append(tmp_opts)
 #---------------------------------------------------------------------------------------------------
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
-add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
-# add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
+# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=-51.66,slon= -28.91)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
 # add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
@@ -39,19 +39,21 @@ def add_var(var_name,**kwargs):
 # htype = 'output.scream.2D.10min.INSTANT.nmins_x10'
 htype = 'output.scream.3D.10min.INSTANT.nmins_x10'
 
-add_var('T_mid')
 
-# add_var('ps')
-# add_var('omega')
-# add_var('horiz_winds')
-# add_var('qv')
-# add_var('T_mid')
-# add_var('z_mid')
+add_var('T_mid')
+add_var('p_mid')
+add_var('qv')
+add_var('horiz_winds_u')
+add_var('horiz_winds_v')
+add_var('omega')
+
+
+# output_data_root = f'{case_root}/curtain_data'
+output_data_root = '/global/cfs/cdirs/m4842/whannah/curtain_data'
 
 #---------------------------------------------------------------------------------------------------
 
-# path_len_km = 1200   # total path distance [km]
-path_len_km = 20   # total path distance [km]
+path_len_km = 1200   # total path distance [km]
 path_spc_km = 2      # spacing between interpolated path points [km]
 path_ncells = 2      # number of cells to consider nearest to each point (ncll)
 
@@ -100,10 +102,10 @@ for c in range(num_case):
     target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
     file_list = reduce_file_list_to_target_time(file_list_all,target_time)
     #-----------------------------------------------------------------------
-    # # expand list of files
-    # for i,f in enumerate(file_list_all):
-    #     if f==file_list[0]: break
-    # file_list = file_list_all[i-1:i+1+1]
+    # expand list of files
+    for i,f in enumerate(file_list_all):
+        if f==file_list[0]: break
+    file_list = file_list_all[i-1:i+1+1]
     #---------------------------------------------------------------------------
     print()
     for f in file_list: print(' '*2+f'{hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
@@ -111,55 +113,47 @@ for c in range(num_case):
     ds = xr.open_mfdataset(file_list, data_vars='all')
     # ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
     #---------------------------------------------------------------------------
-    print('\n'+' '*2+'creating mask...')
-    # mdx = 15 # width in degrees of area centered on tanget point
-    # mlat1,mlat2 = case_opts['tlat']-mdx/2., case_opts['tlat']+mdx/2.
-    # mlon1,mlon2 = case_opts['tlon']-mdx/2., case_opts['tlon']+mdx/2.
-    buffer_deg = 0.1
-    mlat1,mlat2 = np.min(path_lat)-buffer_deg, np.max(path_lat)+buffer_deg
-    mlon1,mlon2 = np.min(path_lon)-buffer_deg, np.max(path_lon)+buffer_deg
-    # if mlon1<0: mlon1 = (mlon1+360)%360
-    # if mlon2<0: mlon2 = (mlon2+360)%360
-    lat_full,lon_full = ds['lat'],ds['lon']
-    mask = xr.ones_like(lat_full,dtype=bool)
-    mask = mask & (lat_full>=mlat1) & (lat_full<=mlat2)
-    mask = mask & (lon_full>=mlon1) & (lon_full<=mlon2)
-    mask.load()
-    #---------------------------------------------------------------------------
-    # apply mask to coordinates for interpolation points
-    lat_masked = ds['lat'].where(mask,drop=True).values
-    lon_masked = ds['lon'].where(mask,drop=True).values
-    #---------------------------------------------------------------------------
     # find ncol indives and distance weighting for path interpolation
     print('\n'+' '*2+'finding column indices for interpolation...')
     nlev = len(ds['lev'])
     (ncol_idx, dist_wgt) = find_path_ncol_wgt( path_npts, nlev, path_ncells, path_lat, path_lon,
-                                               lat_masked, lon_masked )
+                                               ds['lat'].values, ds['lon'].values )
     ncol_idx = ncol_idx.astype(int)
     # tmp_coords = {''}
     # ncol_idx = xr.DataArray(ncol_idx.astype(int),coords=tmp_coords)
     # dist_wgt = xr.DataArray(dist_wgt,            coords=tmp_coords)
     #---------------------------------------------------------------------------
+    zmid = None
+    ds_tmp = None
+    #---------------------------------------------------------------------------
     for v in range(num_var):
         var_opts = var_opts_list[v]
         print('\n'+' '*2+'var: '+hapy.tclr.MAGENTA+var_list[v]+hapy.tclr.END)
         #-----------------------------------------------------------------------
-        tmp_data_root = f'{case_root}/curtain_data'
-        os.makedirs(tmp_data_root, exist_ok=True)
-        tmp_file = f'{tmp_data_root}/curtain.{var_list[v]}.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.nc'
+        os.makedirs(output_data_root, exist_ok=True)
+        f_name = case_opts['n']
+        f_time = case_opts['xtime'].replace(' ','_').replace(':','_')
+        tmp_file = f'{output_data_root}/{f_name}.{f_time}.curtain.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.nc'
         #-----------------------------------------------------------------------
         # print(); print(tmp_file); exit()
         #-----------------------------------------------------------------------
-        data = ds[var_list[v]]
-        zmid = ds['z_mid']
+        tvar = var_list[v]
+        if 'horiz_winds' in var_list[v]: tvar = 'horiz_winds'
+        if var_list[v]=='p_mid': tvar = 'ps'
+        data = ds[tvar]
+        if v==0: zmid = ds['z_mid']
+        #-----------------------------------------------------------------------
+        if 'horiz_winds' in var_list[v]:
+            if var_list[v]=='horiz_winds_u': data = data.isel(dim2=0)
+            if var_list[v]=='horiz_winds_v': data = data.isel(dim2=1)
+        if var_list[v]=='p_mid':
+            p0 = 1e5
+            data = ds['hyam']*p0 + ds['hybm']*ds['ps']
+            data = data.transpose('time','ncol','lev')
+            data.load()
         #-----------------------------------------------------------------------
         # adjust units
-        if 'unit_fac' in var_opts:
-            data = data * var_opts['unit_fac']
-        #-----------------------------------------------------------------------
-        print('\n'+' '*4+'applying mask...')
-        data = data.where(mask,drop=True)
-        zmid = zmid.where(mask,drop=True)
+        if 'unit_fac' in var_opts: data = data * var_opts['unit_fac']
         #-----------------------------------------------------------------------
         # print('\n'+' '*4+'loading reduced data...')
         # data.load()
@@ -190,7 +184,7 @@ for c in range(num_case):
                 zmid_interp[:,n,:] = np.sum( zmid[:,ncol_idx[n,:],:]*tmp_wgt, axis=1 ) / np.sum(tmp_wgt)
             return ( data_interp, zmid_interp )
         #-----------------------------------------------------------------------
-        print('\n'+' '*4+'interpolating to path...')
+        print(''+' '*4+'interpolating to path...')
         (data_interp,zmid_interp) = interpolate_to_path_loc( data.values, zmid.values, path_npts, ncol_idx, dist_wgt )
         interp_coords = {'time':data['time'],'path_coord':path_coord,'lev':ds['lev']}
         data_interp = xr.DataArray(data_interp, coords=interp_coords)
@@ -233,31 +227,35 @@ for c in range(num_case):
         # exit()
         #-----------------------------------------------------------------------
         # interpolate to height coordinate
-        print('\n'+' '*4+'interpolating to height coordinate...')
+        print(''+' '*4+'interpolating to height coordinate...')
         target_heights = np.arange(10e3,55e3+250,200)
         data_interp_hgt = hapy.interp_to_height( data_interp, zmid_interp, target_heights,
                                                  lev_dim='lev', height_dim='height',extrapolate=False)
         #-----------------------------------------------------------------------
         if print_stats: hapy.print_stat(data_interp_hgt,name=var_list[v],stat='naxsh',indent=' '*4,compact=True)
         #-----------------------------------------------------------------------
-        print()
-        print(data_interp_hgt)
-        print()
-        exit()
+        # print()
+        # print(data_interp_hgt)
+        # print()
+        # exit()
         #-----------------------------------------------------------------------
-        # write to file
-        print(); print(f'  writing file...  => {tmp_file}')
-        ds_tmp = xr.Dataset()
+        # build output dataset
+        if v==0:
+            ds_tmp = xr.Dataset()
+            ds_tmp['path_lat']  = path_lat
+            ds_tmp['path_lon']  = path_lon
+            ds_tmp.attrs['path_len_km'] = path_len_km
+            ds_tmp.attrs['path_spc_km'] = path_spc_km
+            ds_tmp.attrs['path_ncells'] = path_ncells
+            ds_tmp.attrs['tlat']        = tlat
+            ds_tmp.attrs['tlon']        = tlon
+            ds_tmp.attrs['slat']        = slat
+            ds_tmp.attrs['slon']        = slon
+        #-----------------------------------------------------------------------
+        # add current variable
         ds_tmp[var_list[v]] = data_interp_hgt
-        ds_tmp['path_lat']  = path_lat
-        ds_tmp['path_lon']  = path_lon
-        ds_tmp.attrs['path_len_km'] = path_len_km
-        ds_tmp.attrs['path_spc_km'] = path_spc_km
-        ds_tmp.attrs['path_ncells'] = path_ncells
-        ds_tmp.attrs['tlat']        = tlat
-        ds_tmp.attrs['tlon']        = tlon
-        ds_tmp.attrs['slat']        = slat
-        ds_tmp.attrs['slon']        = slon
-        ds_tmp.to_netcdf(path=tmp_file,mode='w')
+    #---------------------------------------------------------------------------
+    print('\n'+' '*2+f'writing file...  => {tmp_file}')
+    ds_tmp.to_netcdf(path=tmp_file,mode='w')
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------

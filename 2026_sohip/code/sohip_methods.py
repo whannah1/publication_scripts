@@ -14,6 +14,8 @@ geod_obj = Geod(ellps='clrk66') # Use Clarke 1866 ellipsoid.
 deg_to_rad = np.pi/180. ; rad_to_deg = 180./np.pi
 grid_root = '/global/cfs/cdirs/m4842/whannah/files_grid'
 #---------------------------------------------------------------------------------------------------
+xr.set_options(use_new_combine_kwarg_defaults=True)
+#---------------------------------------------------------------------------------------------------
 @numba.njit
 def calc_great_circle_distance(lat1,lat2,lon1,lon2):
     '''
@@ -81,13 +83,15 @@ def find_closest_cells_and_dist(lat,lon,center_lat,center_lon,num_cells=1):
 #---------------------------------------------------------------------------------------------------
 @numba.njit()
 def find_path_ncol_wgt( npts, nlev, ncll, path_lat, path_lon, center_lat, center_lon ):
-    ncol_idx = np.zeros(npts)
-    dist_wgt = np.zeros(npts)
+    ncol_idx = np.zeros((npts,ncll))
+    dist_wgt = np.zeros((npts,ncll)) # inverse distance
     for n in range(npts):
-        (min_dist_ncol,min_dist_val) = find_closest_cells_and_dist(path_lat[n],path_lon[n],center_lat,center_lon,num_cells=ncll)
-        ncol_idx[n] = min_dist_ncol[:ncll]
-        dist_wgt[n] = min_dist_val[:ncll]
-    return data_interp
+        ( min_dist_ncol, min_dist_val ) = find_closest_cells_and_dist( path_lat[n], path_lon[n],
+                                                                       center_lat, center_lon,
+                                                                       num_cells=ncll )
+        ncol_idx[n,:] = min_dist_ncol[:ncll]
+        dist_wgt[n,:] = 1./min_dist_val[:ncll]
+    return (ncol_idx, dist_wgt)
 #---------------------------------------------------------------------------------------------------
 @numba.njit()
 def interpolate_to_path_numba( npts, nlev, ncll, data, path_lat, path_lon, center_lat, center_lon ):
@@ -95,7 +99,7 @@ def interpolate_to_path_numba( npts, nlev, ncll, data, path_lat, path_lon, cente
     for n in range(npts):
         (min_dist_ncol,min_dist_val) = find_closest_cells_and_dist(path_lat[n],path_lon[n],center_lat,center_lon,num_cells=ncll)
         ncol_idx = min_dist_ncol[:ncll]
-        wgt = min_dist_val[:ncll]
+        wgt = 1./min_dist_val[:ncll]
         for k in range(nlev):
             data_interp[n,k] = np.sum( data[ncol_idx,k] * wgt ) / np.sum(wgt)
     return data_interp
@@ -167,16 +171,29 @@ def reduce_file_list_to_target_time(file_list,target_time):
     # matching_files = []
     tsec_diff_list = []
     for f in file_list:
-        match = re.search(r'(\d{4})-(\d{2})-(\d{2})-(\d+)\.nc$', f)
-        year, month, day, seconds = match.groups()
+        file_suffix = r'\.nc$'
+        if ".reduced." in f: file_suffix = r'\.reduced\.nc$'
+        if 'IMERG' in f:
+            # ex: 3B-HHR.MS.MRG.3IMERG.20230623-S163000-E165959.0990.V07B.HDF5
+            match = re.search(r'3IMERG\.(\d{4})(\d{2})(\d{2})-S(\d{2})(\d{2})(\d{2}).*?\.(\d{4})\.V', f)
+            year, month, day, hour, minute, second, granule = match.groups()
+            seconds = int(granule)*60
+        else:
+            match = re.search(r'(\d{4})-(\d{2})-(\d{2})-(\d+)'+file_suffix, f)
+            year, month, day, seconds = match.groups()
         # Create datetime for the date at midnight
         base_time = datetime.datetime(int(year), int(month), int(day))
         # Add the seconds
         file_time = base_time + datetime.timedelta(seconds=int(seconds))
         # Convert to cftime for comparison
-        file_cftime = cftime.DatetimeNoLeap(file_time.year, file_time.month, 
-                                            file_time.day, file_time.hour, 
-                                            file_time.minute, 0)
+        if 'IMERG' in f:
+            file_cftime = cftime.DatetimeJulian(file_time.year, file_time.month, 
+                                                file_time.day, file_time.hour, 
+                                                file_time.minute, 0)
+        else:
+            file_cftime = cftime.DatetimeNoLeap(file_time.year, file_time.month, 
+                                                file_time.day, file_time.hour, 
+                                                file_time.minute, 0)
         # Check if this file contains our target time (assuming 10min output)
         tsec_diff = abs((file_cftime - target_time).total_seconds())
         tsec_diff_list.append(tsec_diff)
