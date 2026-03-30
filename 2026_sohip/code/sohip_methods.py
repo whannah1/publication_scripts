@@ -2,6 +2,10 @@ import os, re, copy, string, glob, subprocess as sp, numba
 import numpy as np
 import xarray as xr
 import uxarray as ux
+from stockwell import st
+from scipy.signal import savgol_filter
+# from scipy.signal import tukey
+import scipy
 import cmocean
 import datetime, cftime
 import matplotlib.pyplot as plt
@@ -225,4 +229,89 @@ def get_grid_file(case_in):
     if '256x3-se-pac-v1' in case_in: grid_file = f'{grid_root}/2025-sohip-256x3-se-pac-v1-pg2_scrip.nc'
     if '256x3-sw-ind-v1' in case_in: grid_file = f'{grid_root}/2025-sohip-256x3-sw-ind-v1-pg2_scrip.nc'
     return grid_file
+#---------------------------------------------------------------------------------------------------
+def calc_gw_ep(da, poly_order=7, min_lz=None, max_lz=5000.):
+    """
+    Calculate gravity wave potential energy Ep(z) from temperature profiles
+    using the Stockwell transform.
+
+    Parameters
+    ----------
+    da : xr.DataArray
+        Temperature data with dims (time, path_coord, height) or any subset.
+        Height coordinate must be in meters, uniformly spaced.
+    poly_order : int
+        Polynomial order for background removal. Default 9.
+    min_lz : float or None
+        Minimum vertical wavelength [m] to include. Default 2*dz.
+    max_lz : float
+        Maximum vertical wavelength [m] to include. Default 5000.
+
+    Returns
+    -------
+    ep : xr.DataArray
+        GW potential energy, same dims as da except height is preserved.
+        Units are dimensionless (T'/T_bar)^2, multiply by 0.5*(g/N)^2 for J/kg.
+    """
+    import stockwell as st
+    from scipy.signal import savgol_filter
+
+    height = da.height.values
+    dz     = height[1] - height[0]
+
+    if min_lz is None: min_lz = dz * 2
+
+    # --- vertical wavelength axis and masks ---
+    vert_frq  = np.fft.rfftfreq(len(height), d=dz)
+    vwav      = 1.0 / vert_frq[1:]
+    vwav_mask = (vwav >= min_lz) & (vwav <= max_lz)
+    vwav      = vwav[vwav_mask]
+
+    # --- cone of influence ---
+    dist_edge = np.minimum(height - height.min(), height.max() - height)
+    coi_mask  = vwav[:, np.newaxis] <= 2 * dist_edge[np.newaxis, :]  # (n_wav, n_hgt)
+
+    # --- determine which dims to loop over ---
+    loop_dims = [d for d in da.dims if d != 'height']
+
+    # --- stack all non-height dims for simple iteration ---
+    if loop_dims:
+        da_stacked = da.stack(sample=loop_dims)  # (height, sample)
+    else:
+        da_stacked = da.expand_dims('sample').stack(sample=['sample'])
+
+    n_samples = da_stacked.sizes['sample']
+    ep_vals   = np.zeros((len(height), n_samples))
+
+    for i in range(n_samples):
+        profile = da_stacked.isel(sample=i).values
+
+        # skip if all NaN
+        if np.all(np.isnan(profile)):
+            ep_vals[:, i] = np.nan
+            continue
+
+        # remove background via polynomial fit
+        bkgd    = np.polyval(np.polyfit(height, profile, poly_order), height)
+        anom    = (profile - bkgd) / bkgd  # normalized T'/T_bar
+
+        # S-transform
+        S_tx = st.st(anom)           # (n_hgt, n_hgt) complex
+        S_tx = S_tx[1:,:][vwav_mask] # (n_wav, n_hgt), drop zero-freq row and mask wavelengths
+
+        # power and Ep
+        S_sq        = np.abs(S_tx)**2
+        ep_vals[:,i] = 0.5 * np.sum(S_sq * coi_mask, axis=0)
+
+    # --- unstack back to original shape ---
+    ep_stacked = xr.DataArray(
+        ep_vals,
+        dims   = ('height', 'sample'),
+        coords = {'height': height, 'sample': da_stacked.coords['sample']}
+    )
+    ep = ep_stacked.unstack('sample').transpose(*da.dims)
+    ep.attrs['long_name'] = 'GW potential energy (dimensionless)'
+    ep.attrs['note']      = f'poly_order={poly_order}, min_lz={min_lz}m, max_lz={max_lz}m'
+
+    return ep
 #---------------------------------------------------------------------------------------------------

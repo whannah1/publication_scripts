@@ -495,9 +495,14 @@ ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
 
 ```shell
 
-SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_n2s.nc
+ncks -O --dmm_in_mk --no_tmp_fl --hdr_pad=10000 --gaa remap_script=ncremap --gaa remap_hostname=cori10 --gaa remap_version=4.9.2 --rgr scrip=/global/homes/w/whannah/HICCUP/data_scratch/files_grid/scrip_721x1440_s2n.nc --rgr ttl=Equi-Angular grid 721x1440#latlon=721,1440#lat_typ=uni#lat_drc=n2s#lon_typ=grn_ctr /tmp/ncremap_tmp_dmm.nc.pid49188 /tmp/ncremap_tmp_out.nc.pid49188
+
+ncremap --tmp_dir={self.tmp_dir} -G ttl='Equi-Angular grid 721x1440 S>N'#latlon=721,1440#lat_typ=uni#lat_drc=s2n#lon_typ=grn_ctr -g /global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_s2n.nc
+
+# SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_n2s.nc
+SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_s2n.nc
 DST_GRID=files_grid/cmip_180x360_scrip.nc
-MAP_FILE=files_maps/map_721x1440_to_180x360_traave.20260112.nc
+MAP_FILE=files_maps/map_721x1440_s2n_to_180x360_traave.20260112.nc
 ncremap -a traave --src_grd=${SRC_GRID} --dst_grd=${DST_GRID} --map_file=${MAP_FILE}
 
 
@@ -510,11 +515,20 @@ ncremap -a traave --src_grd=${SRC_GRID} --dst_grd=${DST_GRID} --map_file=${MAP_F
 
 # FILE_NAME=ua_197901_201912
 # FILE_NAME=va_197901_201912
-FILE_NAME=ta_197901_201912
-# FILE_NAME=hus_197901_201912
+# FILE_NAME=ta_197901_201912
+FILE_NAME=hus_197901_201912
 # FILE_NAME=tro3_197901_201912
 SRC_DATA=/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/${FILE_NAME}.nc
 DST_DATA=/pscratch/sd/w/whannah/Obs/ERA5/e3sm_diags_remap/${FILE_NAME}.remap_180x360.nc
-MAP_FILE=files_maps/map_721x1440_to_180x360_traave.20260112.nc
+MAP_FILE=files_maps/map_721x1440_s2n_to_180x360_traave.20260112.nc
 ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
+
+
+for FILE_NAME in ua_197901_201912 va_197901_201912 ta_197901_201912 hus_197901_201912 tro3_197901_201912; do
+  SRC_DATA=/global/cfs/cdirs/e3sm/diagnostics/observations/Atm/time-series/ERA5/${FILE_NAME}.nc
+  DST_DATA=/pscratch/sd/w/whannah/Obs/ERA5/e3sm_diags_remap/${FILE_NAME}.remap_180x360.nc
+  MAP_FILE=files_maps/map_721x1440_s2n_to_180x360_traave.20260112.nc
+  ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
+done
+
 ```

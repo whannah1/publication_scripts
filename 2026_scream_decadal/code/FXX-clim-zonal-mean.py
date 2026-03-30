@@ -164,7 +164,14 @@ for v in range(num_var):
                 data = hapy.vinth2p_simple(data, ds['hyam'], ds['hybm'], lev, ds['ps'],
                                            interp_type='linear', extrapolate=False)
                 if len(data.plev) == 1: data = data.isel(plev=0)
-
+        #-----------------------------------------------------------------------
+        # yr, mn, dy = ds['time.year'].values, ds['time.month'].values, ds['time.day'].values
+        # date1 = f'{yr[ 0]}-{mn[ 0]}-{dy[ 0]}'
+        # date2 = f'{yr[-1]}-{mn[-1]}-{dy[-1]}'
+        # print(f'\n  date range => {date1} : {date2}')
+        # exit()
+        #-----------------------------------------------------------------------
+        # print(f'\n    latitude range => {data.lat[0].values} : {data.lat[-1].values}\n')
         #-----------------------------------------------------------------------
         if var_fac_list[v] is not None:
             data = data * var_fac_list[v]
@@ -172,7 +179,7 @@ for v in range(num_var):
         # Zonal mean
         data = data.mean(dim='lon')
         data_list.append(data.values)
-        lat_list_.append(data['lat'].values / 1e2)   # preserve original scaling
+        lat_list_.append(data['lat'].values)
         lev_list_.append(data['plev'].values / 1e2)  # Pa → hPa for display
 
     #---------------------------------------------------------------------------
@@ -195,7 +202,7 @@ for v in range(num_var):
         # diff_data_max = np.max([np.nanmax(d) for d in data_list[1:]])
         diff_data_max = np.max([np.nanmax(np.absolute(d)) for d in data_list[1:]])
         diff_data_min = -1*diff_data_max
-        clev_diff = np.linspace(diff_data_min, diff_data_max, 11)
+        clev_diff = np.linspace(diff_data_min, diff_data_max, 12)
         # norm_diff = BoundaryNorm(clev_diff, ncolors=256, clip=False)
     #---------------------------------------------------------------------------
     # Draw panels
@@ -216,6 +223,8 @@ for v in range(num_var):
         if plot_diff and c!=0:
             img_kwargs['cmap']     = cmocean.cm.balance
             img_kwargs['levels']   = clev_diff
+            # img_kwargs['cmap']     = 'bwr'# match E3SM diags
+            # img_kwargs['levels']   = np.array([-1.5,-1.0,-0.5,-0.2,-0.1,-0.05,-0.01,0.01,0.05,0.1,0.2,0.5,1.0,1.5])
             # img_kwargs['norm']      = norm_diff
             # img_kwargs['vmin']   = diff_data_min
             # img_kwargs['vmax']   = diff_data_max
