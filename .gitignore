@@ -1,6 +1,7 @@
 *.tar.gz
 */*.tar.gz
 */*data
+*/*.out
 # */map_files
 # */*.nc
 .DS_Store
