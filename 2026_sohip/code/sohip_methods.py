@@ -20,6 +20,10 @@ grid_root = '/global/cfs/cdirs/m4842/whannah/files_grid'
 #---------------------------------------------------------------------------------------------------
 xr.set_options(use_new_combine_kwarg_defaults=True)
 #---------------------------------------------------------------------------------------------------
+# define constants
+g    = 9.81   # m/s^2
+cp   = 1004.  # J/kg/K
+#---------------------------------------------------------------------------------------------------
 @numba.njit
 def calc_great_circle_distance(lat1,lat2,lon1,lon2):
     '''
@@ -86,16 +90,18 @@ def find_closest_cells_and_dist(lat,lon,center_lat,center_lon,num_cells=1):
     return ( min_dist_ncol, dist[min_dist_ncol] )
 #---------------------------------------------------------------------------------------------------
 @numba.njit()
-def find_path_ncol_wgt( npts, nlev, ncll, path_lat, path_lon, center_lat, center_lon ):
+def find_path_ncol_wgt( npts, nlev, ncll, path_lat, path_lon, center_lat, center_lon, area ):
     ncol_idx = np.zeros((npts,ncll))
     dist_wgt = np.zeros((npts,ncll)) # inverse distance
+    area_wgt = np.zeros((npts,ncll))
     for n in range(npts):
         ( min_dist_ncol, min_dist_val ) = find_closest_cells_and_dist( path_lat[n], path_lon[n],
                                                                        center_lat, center_lon,
                                                                        num_cells=ncll )
         ncol_idx[n,:] = min_dist_ncol[:ncll]
         dist_wgt[n,:] = 1./min_dist_val[:ncll]
-    return (ncol_idx, dist_wgt)
+        area_wgt[n,:] = area[min_dist_ncol[:ncll]]
+    return (ncol_idx, dist_wgt, area_wgt)
 #---------------------------------------------------------------------------------------------------
 @numba.njit()
 def interpolate_to_path_numba( npts, nlev, ncll, data, path_lat, path_lon, center_lat, center_lon ):
@@ -133,6 +139,8 @@ def interpolate_to_path(npts, nlev, ncll, data_in, path_lat, path_lon, path_coor
         coords_out['lev'] = lev_coord
 
     return xr.DataArray(data_interp, coords=coords_out)
+#---------------------------------------------------------------------------------------------------
+
 #---------------------------------------------------------------------------------------------------
 # define path outward from a given center location
 ''' usage notes
@@ -230,88 +238,155 @@ def get_grid_file(case_in):
     if '256x3-sw-ind-v1' in case_in: grid_file = f'{grid_root}/2025-sohip-256x3-sw-ind-v1-pg2_scrip.nc'
     return grid_file
 #---------------------------------------------------------------------------------------------------
-def calc_gw_ep(da, poly_order=7, min_lz=None, max_lz=5000.):
+def get_coi_mask(height,vwav):
+    # cone of influence (COI) for S-transform:
+    # require N_cycles full cycles to fit between level and edge
+    N_cycles   = 2        # increase this to be more conservative
+    coi_top    = (height.max() - height) / N_cycles
+    coi_bottom = (height - height.min()) / N_cycles
+    coi        = np.minimum(coi_top, coi_bottom)
+    coi_mask   = vwav[:, np.newaxis] <= coi[np.newaxis, :]
+    return coi_mask
+#---------------------------------------------------------------------------------------------------
+def calc_gw_ep(da, poly_order=7, min_lz=None, max_lz=5000., bkgd=None):
     """
     Calculate gravity wave potential energy Ep(z) from temperature profiles
     using the Stockwell transform.
-
-    Parameters
-    ----------
+    ----------------------------------------------------------------------------
     da : xr.DataArray
         Temperature data with dims (time, path_coord, height) or any subset.
         Height coordinate must be in meters, uniformly spaced.
     poly_order : int
-        Polynomial order for background removal. Default 9.
+        Polynomial order for background removal.
     min_lz : float or None
         Minimum vertical wavelength [m] to include. Default 2*dz.
     max_lz : float
         Maximum vertical wavelength [m] to include. Default 5000.
-
-    Returns
-    -------
-    ep : xr.DataArray
+    ----------------------------------------------------------------------------
+    Returns: ep : xr.DataArray
         GW potential energy, same dims as da except height is preserved.
         Units are dimensionless (T'/T_bar)^2, multiply by 0.5*(g/N)^2 for J/kg.
     """
-    import stockwell as st
-    from scipy.signal import savgol_filter
-
     height = da.height.values
     dz     = height[1] - height[0]
 
     if min_lz is None: min_lz = dz * 2
-
-    # --- vertical wavelength axis and masks ---
-    vert_frq  = np.fft.rfftfreq(len(height), d=dz)
-    vwav      = 1.0 / vert_frq[1:]
-    vwav_mask = (vwav >= min_lz) & (vwav <= max_lz)
-    vwav      = vwav[vwav_mask]
-
-    # --- cone of influence ---
-    dist_edge = np.minimum(height - height.min(), height.max() - height)
-    coi_mask  = vwav[:, np.newaxis] <= 2 * dist_edge[np.newaxis, :]  # (n_wav, n_hgt)
-
-    # --- determine which dims to loop over ---
+    #---------------------------------------------------------------------------
+    # determine which dims to loop over
     loop_dims = [d for d in da.dims if d != 'height']
-
-    # --- stack all non-height dims for simple iteration ---
+    #---------------------------------------------------------------------------
+    # stack all non-height dims for simple iteration
     if loop_dims:
         da_stacked = da.stack(sample=loop_dims)  # (height, sample)
     else:
         da_stacked = da.expand_dims('sample').stack(sample=['sample'])
-
     n_samples = da_stacked.sizes['sample']
     ep_vals   = np.zeros((len(height), n_samples))
-
+    #---------------------------------------------------------------------------
+    if bkgd is not None:
+        if loop_dims:
+            bkgd_stacked = bkgd.stack(sample=loop_dims)
+        else:
+            bkgd_stacked = bkgd.expand_dims('sample').stack(sample=['sample'])
+    #---------------------------------------------------------------------------
+    # reduce height dimension based on missing/NaN values
+    min_hgt_pts = len(height)
+    nan_mask = np.zeros((len(height), n_samples), dtype=bool)
+    for i in range(n_samples):
+        tmp_data = da_stacked.isel(sample=i).values
+        nan_mask[:,i] = ~np.isnan(tmp_data) # Create a boolean mask for non-NaN values
+        # tmp_data = tmp_data[nan_mask[:,1]]
+        # min_hgt_pts = min(min_hgt_pts,len(tmp_data))
+    # da_stacked = da_stacked.isel(height=slice(0,min_hgt_pts+1))
+    # height     = height[0:min_hgt_pts+1]
+    #---------------------------------------------------------------------------
+    # vertical wavelength axis and masks
+    vert_frq  = np.fft.rfftfreq(len(height), d=dz)
+    vwav      = 1.0 / vert_frq[1:]
+    vwav_mask = (vwav >= min_lz) & (vwav <= max_lz)
+    vwav      = vwav[vwav_mask]
+    #---------------------------------------------------------------------------
+    # # cone of influence
+    # dist_edge = np.minimum(height - height.min(), height.max() - height)
+    # coi_mask  = vwav[:, np.newaxis] <= 2 * dist_edge[np.newaxis, :]  # (n_wav, n_hgt)
+    #---------------------------------------------------------------------------
+    # #---------------------------------------------------------------------------
+    # # determine which dims to loop over
+    # loop_dims = [d for d in da.dims if d != 'height']
+    # #---------------------------------------------------------------------------
+    # # stack all non-height dims for simple iteration
+    # if loop_dims:
+    #     da_stacked = da.stack(sample=loop_dims)  # (height, sample)
+    # else:
+    #     da_stacked = da.expand_dims('sample').stack(sample=['sample'])
+    # n_samples = da_stacked.sizes['sample']
+    # ep_vals   = np.zeros((len(height), n_samples))
+    #---------------------------------------------------------------------------
     for i in range(n_samples):
         profile = da_stacked.isel(sample=i).values
-
+        #--------------------------------------------------
+        # restrict to valid values
+        profile = profile[nan_mask[:,i]]
+        tmp_height = height[nan_mask[:,i]]
+        #--------------------------------------------------
+        # vertical wavelength axis and masks
+        vert_frq  = np.fft.rfftfreq(len(tmp_height), d=dz)
+        vwav      = 1.0 / vert_frq[1:]
+        vwav_mask = (vwav >= min_lz) & (vwav <= max_lz)
+        vwav      = vwav[vwav_mask]
+        coi_mask = get_coi_mask(tmp_height,vwav)
+        #--------------------------------------------------
+        # add a simple check here that dimensions are correct
+        if i==0 and profile.shape != (len(tmp_height),): profile = profile.T
         # skip if all NaN
         if np.all(np.isnan(profile)):
-            ep_vals[:, i] = np.nan
+            ep_vals[:,i] = np.nan
             continue
-
+        #--------------------------------------------------
         # remove background via polynomial fit
-        bkgd    = np.polyval(np.polyfit(height, profile, poly_order), height)
-        anom    = (profile - bkgd) / bkgd  # normalized T'/T_bar
-
+        if bkgd is None:
+            bkgd_loc = np.polyval(np.polyfit(tmp_height, profile, poly_order), tmp_height)
+        else:
+            bkgd_loc = bkgd_stacked.values[nan_mask[:,i],i]
+        anom = (profile - bkgd_loc) / bkgd_loc  # normalized T'/T_bar
+        #--------------------------------------------------
         # S-transform
         S_tx = st.st(anom)           # (n_hgt, n_hgt) complex
         S_tx = S_tx[1:,:][vwav_mask] # (n_wav, n_hgt), drop zero-freq row and mask wavelengths
-
-        # power and Ep
-        S_sq        = np.abs(S_tx)**2
-        ep_vals[:,i] = 0.5 * np.sum(S_sq * coi_mask, axis=0)
-
-    # --- unstack back to original shape ---
-    ep_stacked = xr.DataArray(
-        ep_vals,
-        dims   = ('height', 'sample'),
-        coords = {'height': height, 'sample': da_stacked.coords['sample']}
-    )
+        #--------------------------------------------------
+        # calcualte power
+        S_sq = np.abs(S_tx)**2
+        #--------------------------------------------------
+        # calculate N for Ep
+        dTdz = np.gradient(bkgd_loc, tmp_height)       # K/m
+        N2   = (g / bkgd_loc) * (dTdz + g/cp)      # rad^2/s^2
+        N2   = np.maximum(N2, 1e-6)            # guard against negative values near tropopause
+        N    = np.sqrt(N2)                     # rad/s
+        #--------------------------------------------------
+        # calculate Ep
+        ep_vals[nan_mask[:,i],i] = 0.5 * np.sum((g/N)**2 * S_sq * coi_mask, axis=0)
+        #--------------------------------------------------
+        ep_avg = np.mean(ep_vals[nan_mask[:,i],i])
+        if ep_avg==np.nan:
+            # print(f'ep_avg: {ep_avg}   ep_max: {ep_max}')
+            hapy.print_stat(ep_vals[:,i],name='ep_vals')
+            hapy.print_stat(S_sq,name='S_sq')
+            hapy.print_stat(N,name='N')
+            hapy.print_stat(coi_mask,name='coi_mask')
+            hapy.print_stat(anom,name='anom')
+            hapy.print_stat(bkgd_loc,name='bkgd_loc')
+            hapy.print_stat(S_tx,name='S_tx')
+            hapy.print_stat(S_sq,name='S_sq')
+            # hapy.print_stat()
+            exit()
+            
+    #---------------------------------------------------------------------------
+    # unstack back to original shape
+    coords = {'height': height, 'sample': da_stacked.coords['sample']}
+    ep_stacked = xr.DataArray( ep_vals, dims=('height', 'sample'), coords=coords )
     ep = ep_stacked.unstack('sample').transpose(*da.dims)
     ep.attrs['long_name'] = 'GW potential energy (dimensionless)'
     ep.attrs['note']      = f'poly_order={poly_order}, min_lz={min_lz}m, max_lz={max_lz}m'
-
+    #---------------------------------------------------------------------------
     return ep
 #---------------------------------------------------------------------------------------------------

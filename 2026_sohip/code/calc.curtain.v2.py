@@ -18,13 +18,13 @@ def add_case(case_in,**kwargs):
     tmp_opts['s'] = 'data_reduced'
     case_opts_list.append(tmp_opts)
 #---------------------------------------------------------------------------------------------------
-# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
-# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
+add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
 add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=-51.66,slon= -28.91)
-# add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
-# add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
-# add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
+add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 # add_case('2025-SOHIP-RRM-00.256x3-ptgnia-v1.2023-06-13.19',       n='256x3-ptgnia-v1',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
 #---------------------------------------------------------------------------------------------------
@@ -53,9 +53,21 @@ output_data_root = '/global/cfs/cdirs/m4842/whannah/curtain_data'
 
 #---------------------------------------------------------------------------------------------------
 
+wgt_method = 'inv_dist'
 path_len_km = 1200   # total path distance [km]
 path_spc_km = 2      # spacing between interpolated path points [km]
 path_ncells = 2      # number of cells to consider nearest to each point (ncll)
+
+
+# use larger cell count for "background" profile
+wgt_method = 'area'
+# path_ncells = 10 # ~ 9.6km radius
+# path_ncells = 20 # ~12.5km radius
+# path_ncells = 30 # ~15.4km radius
+# path_ncells = 40 # ~17.6km radius
+# path_ncells = 50 # ~19.78km radius
+# path_ncells = 60 # ~21.64km radius
+path_ncells = 80 # ~24.87km radius
 
 #---------------------------------------------------------------------------------------------------
 
@@ -88,8 +100,8 @@ for c in range(num_case):
     file_path = f'{case_root}/{case_list[c]}/{case_sub}/*{htype}*'
     
     file_list_all = sorted(glob.glob(file_path))
-    if 'first_file' in locals(): file_list_all = file_list[first_file:]
-    if 'num_files'  in locals(): file_list_all = file_list[:num_files]
+    if 'first_file' in locals(): file_list_all = file_list_all[first_file:]
+    if 'num_files'  in locals(): file_list_all = file_list_all[:num_files]
 
     # for f in file_list_all: print(' '*6+f'{hapy.tclr.YELLOW}{f}{hapy.tclr.END}')
 
@@ -116,12 +128,20 @@ for c in range(num_case):
     # find ncol indives and distance weighting for path interpolation
     print('\n'+' '*2+'finding column indices for interpolation...')
     nlev = len(ds['lev'])
-    (ncol_idx, dist_wgt) = find_path_ncol_wgt( path_npts, nlev, path_ncells, path_lat, path_lon,
-                                               ds['lat'].values, ds['lon'].values )
+    (ncol_idx, dist_wgt, area_wgt) = find_path_ncol_wgt( path_npts, nlev, path_ncells, 
+                                                         path_lat, path_lon,
+                                                         ds['lat'].values, ds['lon'].values, 
+                                                         ds['area'].isel(time=0).values )
     ncol_idx = ncol_idx.astype(int)
     # tmp_coords = {''}
     # ncol_idx = xr.DataArray(ncol_idx.astype(int),coords=tmp_coords)
     # dist_wgt = xr.DataArray(dist_wgt,            coords=tmp_coords)
+    #---------------------------------------------------------------------------
+    # if c==0:
+    #     print()
+    #     hapy.print_stat(1./dist_wgt)
+    #     print()
+    # exit()
     #---------------------------------------------------------------------------
     zmid = None
     ds_tmp = None
@@ -133,7 +153,10 @@ for c in range(num_case):
         os.makedirs(output_data_root, exist_ok=True)
         f_name = case_opts['n']
         f_time = case_opts['xtime'].replace(' ','_').replace(':','_')
-        tmp_file = f'{output_data_root}/{f_name}.{f_time}.curtain.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.nc'
+        tmp_file = f'{output_data_root}/{f_name}.{f_time}.curtain.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}'
+        # if wgt_method == 'inv_dist': tmp_file += '.wgt_inv_dist'
+        if wgt_method == 'area': tmp_file += '.wgt_area'
+        tmp_file += '.nc'
         #-----------------------------------------------------------------------
         # print(); print(tmp_file); exit()
         #-----------------------------------------------------------------------
@@ -172,20 +195,25 @@ for c in range(num_case):
         #     data_interp[n,:] = np.sum(data.isel(ncol=ncol_idx[n,:])*tmp_wgt) / np.sum(tmp_wgt)
         #     zmid_interp[n,:] = np.sum(zmid.isel(ncol=ncol_idx[n,:])*tmp_wgt) / np.sum(tmp_wgt)
         #-----------------------------------------------------------------------
+        wgt = None
+        if wgt_method == 'inv_dist': wgt = dist_wgt
+        if wgt_method == 'area'    : wgt = area_wgt
+        if wgt is None: raise ValueError('wgt cannot be None!')
+        #-----------------------------------------------------------------------
         @numba.njit()
-        def interpolate_to_path_loc( data, zmid, path_npts, ncol_idx, dist_wgt ):
+        def interpolate_to_path_loc( data, zmid, path_npts, ncol_idx, wgt_in ):
             ntime = data.shape[0]
             nlev  = data.shape[2]
             data_interp = np.zeros(( ntime, path_npts, nlev ))
             zmid_interp = np.zeros(( ntime, path_npts, nlev ))
             for n in range(path_npts):
-                tmp_wgt = dist_wgt[n,:,np.newaxis]
-                data_interp[:,n,:] = np.sum( data[:,ncol_idx[n,:],:]*tmp_wgt, axis=1 ) / np.sum(tmp_wgt)
-                zmid_interp[:,n,:] = np.sum( zmid[:,ncol_idx[n,:],:]*tmp_wgt, axis=1 ) / np.sum(tmp_wgt)
+                wgt_tmp = wgt_in[n,:,np.newaxis]
+                data_interp[:,n,:] = np.sum( data[:,ncol_idx[n,:],:]*wgt_tmp, axis=1 ) / np.sum(wgt_tmp)
+                zmid_interp[:,n,:] = np.sum( zmid[:,ncol_idx[n,:],:]*wgt_tmp, axis=1 ) / np.sum(wgt_tmp)
             return ( data_interp, zmid_interp )
         #-----------------------------------------------------------------------
         print(''+' '*4+'interpolating to path...')
-        (data_interp,zmid_interp) = interpolate_to_path_loc( data.values, zmid.values, path_npts, ncol_idx, dist_wgt )
+        (data_interp,zmid_interp) = interpolate_to_path_loc( data.values, zmid.values, path_npts, ncol_idx, wgt )
         interp_coords = {'time':data['time'],'path_coord':path_coord,'lev':ds['lev']}
         data_interp = xr.DataArray(data_interp, coords=interp_coords)
         zmid_interp = xr.DataArray(zmid_interp, coords=interp_coords)

@@ -21,9 +21,9 @@ def add_case(case_in,**kwargs):
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
 # add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
-# add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
 # add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 # add_case('2025-SOHIP-RRM-00.256x3-ptgnia-v1.2023-06-13.19',       n='256x3-ptgnia-v1',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  None,slon=   None)
 
@@ -35,13 +35,25 @@ def add_var(var_name,**kwargs):
     for k, val in kwargs.items(): tmp_opts[k] = val
     var_opts_list.append(tmp_opts)
 #-------------------------------------------------------------------------------
-add_var('T_mid',         vstr='Temperature [K]')
+# add_var('T_mid',         vstr='T_mid [K]')
+# add_var('T_mid',         vstr='T_mid anom path mean',method='anomaly_path')
+# add_var('T_mid',         vstr='T_mid anom poly fit',method='anomaly_poly')
+# add_var('T_mid',         vstr='T_mid anom 20km disc',method='anomaly_disc')
+add_var('T_mid',         vstr='T_mid Ep max_lz=1000',method='Ep', max_lz=1000)
+# add_var('T_mid',         vstr='T_mid Ep max_lz=1500',method='Ep', max_lz=1500)
+# add_var('T_mid',         vstr='T_mid Ep max_lz=2000',method='Ep', max_lz=2000)
 # add_var('p_mid',         vstr='Pressure [mb]')
-add_var('wind_speed',    vstr='Wind Speed [m/s]')
-add_var('omega',         vstr='Omega [Pa/s]')
+# add_var('wind_speed',    vstr='Wind Speed [m/s]')
+# add_var('omega',         vstr='Omega [Pa/s]')
 # add_var('qv',            vstr='Water Vapor')
 # add_var('horiz_winds_u', vstr='U wind')
 # add_var('horiz_winds_v', vstr='V wind')
+
+
+# add_var('T_mid', vstr='T anom ~10 km radius',method='anomaly_disc',bkgd_path_ncells=10) # ~10 km radius
+# add_var('T_mid', vstr='T anom ~15 km radius',method='anomaly_disc',bkgd_path_ncells=30) # ~15 km radius
+# add_var('T_mid', vstr='T anom ~20 km radius',method='anomaly_disc',bkgd_path_ncells=50) # ~20 km radius
+# add_var('T_mid', vstr='T anom ~25 km radius',method='anomaly_disc',bkgd_path_ncells=80) # ~25 km radius
 
 #-------------------------------------------------------------------------------
 
@@ -54,6 +66,10 @@ path_spc_km = 2      # path point spacing [km]
 path_ncells = 2      # number of cells to average for each path point
 
 # first_file,num_files = -1,1
+
+polyfit_order = 7
+
+max_lz = 2000
 
 #-------------------------------------------------------------------------------
 
@@ -99,26 +115,62 @@ for v in range(num_var):
         case_root = case_opts['p']
         case_sub  = case_opts['s']
         #-----------------------------------------------------------------------
+        if var_opts.get('bkgd_path_ncells'):
+            bkgd_path_ncells = var_opts['bkgd_path_ncells']
+        else:
+            bkgd_path_ncells = 50
+        #-----------------------------------------------------------------------
         # read the data
         f_name = case_opts['n']
         f_time = case_opts['xtime'].replace(' ','_').replace(':','_')
-        file_path = f'{curtain_data_root}/{f_name}.{f_time}.curtain.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.nc'
+
+        main_file_path = f'{curtain_data_root}/{f_name}.{f_time}.curtain.ncells_{path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.nc'
+        bkgd_file_path = f'{curtain_data_root}/{f_name}.{f_time}.curtain.ncells_{bkgd_path_ncells}.len_{int(path_len_km)}.spc_{int(path_spc_km)}.wgt_area.nc'
         #-----------------------------------------------------------------------
         # print(f'\nfile_path: {file_path}\n')
         #-----------------------------------------------------------------------
-        ds = xr.open_dataset(file_path)
+        ds_main = xr.open_dataset(main_file_path)
+        ds_bkgd = xr.open_dataset(bkgd_file_path)
         #-----------------------------------------------------------------------
         dt = datetime.datetime.strptime(case_opts['xtime'], '%Y-%m-%d %H:%M')
         target_time = cftime.DatetimeNoLeap(dt.year, dt.month, dt.day, dt.hour, dt.minute, 0)
-        ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+        #-----------------------------------------------------------------------
+        ds_main = ds_main.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+        ds_bkgd = ds_bkgd.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
         #-----------------------------------------------------------------------
         if var_list[v]=='wind_speed':
-            data = np.sqrt( np.square(ds['horiz_winds_u']) + np.square(ds['horiz_winds_u']) )
+            data = np.sqrt( np.square(ds_main['horiz_winds_u']) + np.square(ds_main['horiz_winds_u']) )
+            bkgd = np.sqrt( np.square(ds_bkgd['horiz_winds_u']) + np.square(ds_bkgd['horiz_winds_u']) )
         else:
-            data = ds[var_list[v]]
+            data = ds_main[var_list[v]]
+            bkgd = ds_bkgd[var_list[v]]
         #-----------------------------------------------------------------------
-        if 'anomaly' in var_opts and var_opts['anomaly']:
-            data = data - data.mean(dim='path_coord')
+        # print(); print(data)
+        # print(); print(bkgd)
+        # print()
+        # exit()
+        #-----------------------------------------------------------------------
+        if var_opts.get('method'):
+            if var_opts['method']=='anomaly_path':
+                data = data - data.mean(dim='path_coord')
+            if var_opts['method']=='anomaly_poly':
+                for i in range(len(data['path_coord'])):
+                    tmp_data = data[i,:]
+                    nan_mask = ~np.isnan(tmp_data)
+                    tmp_data = tmp_data[nan_mask]
+                    hght = tmp_data['height']
+                    bkgd_poly = np.polyval(np.polyfit(hght, tmp_data, polyfit_order), hght)
+                    data[i,nan_mask] = data[i,nan_mask] - bkgd_poly
+            if var_opts['method']=='anomaly_disc':
+                data = data - bkgd
+            if var_opts['method']=='Ep':
+                if var_opts.get('max_lz'):
+                    max_lz_loc = var_opts['max_lz']
+                else:
+                    max_lz_loc = max_lz
+                data = calc_gw_ep(data, poly_order=polyfit_order, min_lz=None, max_lz=max_lz_loc, bkgd=bkgd)
+                print()
+                hapy.print_stat(data)
         #-----------------------------------------------------------------------
         # # adjust units
         # if 'unit_fac' in var_opts:
@@ -141,6 +193,9 @@ for v in range(num_var):
     clev = None
     # if 'precip' in var_list[v]      : clev = np.logspace( 0, 3, num=30).round(decimals=2)
     # if var_list[v]=='VapWaterPath'  : clev = np.arange(10,90+1,1)
+    if var_opts.get('method'):
+        if var_list[v]=='T_mid' and var_opts['method']=='Ep':
+            clev = np.logspace( np.log10(0.0001), np.log10(100), num=40).round(decimals=6)
     #---------------------------------------------------------------------------
     # Create plot
     for c in range(num_case):
@@ -158,6 +213,7 @@ for v in range(num_var):
         #     clev = None
 
         if clev is not None:
+            img_kwargs['levels'] = clev
             img_kwargs['norm'] = mcolors.BoundaryNorm(clev, ncolors=256)
 
         # (d1,d2,ip) = (num_var,num_case,v*num_case+c+1) if var_x_case else (num_case,num_var,c*num_var+v+1)
