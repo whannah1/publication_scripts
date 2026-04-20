@@ -4,6 +4,7 @@
 */*.out
 */figs/._*
 # */map_files
+*/files_maps/*
 # */*.nc
 .DS_Store
 __pycache__/
