@@ -1,8 +1,10 @@
 *.tar.gz
 */*.tar.gz
-*/*data
+*/data
+*/timing_data
 */*.out
-*/figs/._*
+*/figs/*png
+*/*/._*
 # */map_files
 */files_maps/*
 # */*.nc
