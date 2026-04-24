@@ -497,7 +497,7 @@ ncremap -m ${MAP_FILE} -i ${SRC_DATA} -o ${DST_DATA}
 
 ncks -O --dmm_in_mk --no_tmp_fl --hdr_pad=10000 --gaa remap_script=ncremap --gaa remap_hostname=cori10 --gaa remap_version=4.9.2 --rgr scrip=/global/homes/w/whannah/HICCUP/data_scratch/files_grid/scrip_721x1440_s2n.nc --rgr ttl=Equi-Angular grid 721x1440#latlon=721,1440#lat_typ=uni#lat_drc=n2s#lon_typ=grn_ctr /tmp/ncremap_tmp_dmm.nc.pid49188 /tmp/ncremap_tmp_out.nc.pid49188
 
-ncremap --tmp_dir={self.tmp_dir} -G ttl='Equi-Angular grid 721x1440 S>N'#latlon=721,1440#lat_typ=uni#lat_drc=s2n#lon_typ=grn_ctr -g /global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_s2n.nc
+ncremap --tmp_dir=??? -G ttl='Equi-Angular grid 721x1440 S>N'#latlon=721,1440#lat_typ=uni#lat_drc=s2n#lon_typ=grn_ctr -g /global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_s2n.nc
 
 # SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_n2s.nc
 SRC_GRID=/global/cfs/projectdirs/m3312/whannah/HICCUP/files_grid/scrip_721x1440_s2n.nc
