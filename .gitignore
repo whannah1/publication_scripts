@@ -11,3 +11,5 @@
 .DS_Store
 __pycache__/
 .ipynb_checkpoints
+*/PET0.RegridWeightGen.Log
+*/slurm_logs/
