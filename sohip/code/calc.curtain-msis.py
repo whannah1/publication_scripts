@@ -49,8 +49,8 @@ curtain_data_root = '/global/cfs/cdirs/m4842/whannah/curtain_data'
 
 wgt_method = 'inv_dist'
 
-path_len_km = 1200   # total path distance [km]
-# path_len_km = 2000   # total path distance [km]
+# path_len_km = 1200   # total path distance [km]
+path_len_km = 2000   # total path distance [km]
 
 path_spc_km = 2      # spacing between interpolated path points [km]
 path_ncells = 2      # number of cells to consider nearest to each point (ncll)
@@ -69,9 +69,10 @@ wgt_method = 'area'
 # target_heights = np.arange(10e3,55e3+250,200) # this is used for the initial curtain calculation
 
 new_target_heights = np.arange(10e3,60e3+200,200) # small extension for testing
-# new_target_heights = np.arange(10e3,200e3+200,200)
+# new_target_heights = np.arange(10e3,200e3+200,200) # larger extension of model data for bending angle calculations
 
 blend_altitude_beg = 50e3
+# blend_altitude_end = 60e3 # might not need this because we can just use the top of the curtain data
 
 #---------------------------------------------------------------------------------------------------
 

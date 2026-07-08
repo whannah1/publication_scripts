@@ -28,7 +28,7 @@ imerg_root = '/global/cfs/cdirs/m4842/whannah/IMERG/hourly_hdf'
 # add_case('IMERG',n='IMERG',xtime='2023-06-21 15:00',g=imerg_grid,xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
 # add_case('IMERG',n='IMERG',xtime='2023-06-15 04:00',g=imerg_grid,xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
 # add_case('IMERG',n='IMERG',xtime='2023-06-13 04:00',g=imerg_grid,xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-add_case('IMERG',n='IMERG',xtime='2023-06-12 19:00',g=imerg_grid,xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+# add_case('IMERG',n='IMERG',xtime='2023-06-12 19:00',g=imerg_grid,xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
 # add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
@@ -36,9 +36,31 @@ add_case('IMERG',n='IMERG',xtime='2023-06-12 19:00',g=imerg_grid,xlat=-50,xlon= 
 # add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
 # add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
 # add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
-add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
 
-alt_subplot_method = True # set to true for viewing multiple model cases with different projections
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-19 21:00',g=imerg_grid,xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
+# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-19.09.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-19 21:00',xlat=0,  xlon=  90,tlat= -6.99,tlon=  84.74,slat= 10.24,slon=  94.16)
+
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-21 21:00',g=imerg_grid,xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+# add_case('2025-SOHIP-RRM-00.256x2-eq-ind-v1.2023-06-21.02.NN_420',n='256x2-eq-ind-v1',xtime='2023-06-21 21:00',xlat=-5, xlon=  80,tlat= -3.05,tlon=  75.97,slat= 13.56,slon=  85.35)
+
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-14 02:00',g=imerg_grid,xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  -51.66,slon=   -28.91)
+# add_case('2025-SOHIP-RRM-00.256x2-ptgnia-v1.2023-06-13.19',       n='256x2-ptgnia-v1',xtime='2023-06-14 02:00',xlat=-50,xlon= -60,tlat=-49.46,tlon= -60.24,slat=  -51.66,slon=   -28.91)
+
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-21 15:00',g=imerg_grid,xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
+# add_case('2025-SOHIP-RRM-00.256x2-sc-ind-v1.2023-06-21.09',       n='256x2-sc-ind-v1',xtime='2023-06-21 15:00',xlat=-50,xlon=  80,tlat=-52.49,tlon=  67.04,slat=-51.03,slon=  98.64)
+
+add_case('IMERG',n='IMERG',                                                           xtime='2023-06-15 04:00',g=imerg_grid,xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+add_case('2025-SOHIP-RRM-00.256x2-sc-pac-v1.2023-06-14.15',       n='256x2-sc-pac-v1',xtime='2023-06-15 04:00',xlat=-35,xlon=-135,tlat=-34.73,tlon=-136.73,slat=-43.76,slon=-114.47)
+
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-13 04:00',g=imerg_grid,xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+# add_case('2025-SOHIP-RRM-00.256x2-se-pac-v1.2023-06-12.16',       n='256x2-se-pac-v1',xtime='2023-06-13 04:00',xlat=-50,xlon= -95,tlat=-49.60,tlon= -94.45,slat=-51.80,slon= -63.70)
+
+# add_case('IMERG',n='IMERG',                                                           xtime='2023-06-12 19:00',g=imerg_grid,xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+# add_case('2025-SOHIP-RRM-00.256x2-sw-ind-v1.2023-06-12.06',       n='256x2-sw-ind-v1',xtime='2023-06-12 19:00',xlat=-50,xlon=  45,tlat=-49.61,tlon=  45.20,slat=-51.79,slon=  75.97)
+
+
+alt_subplot_method = False # set to true for viewing multiple model cases with different projections
 
 path_len_km = 1200  # total path distance in meters (dist_km)
 path_spc_km = 5      # spacing between interpolated path points
@@ -76,6 +98,7 @@ print_stats = True
 var_x_case = True
 plot_diff = False
 
+num_plot_col = 2
 # num_plot_col = int(np.sqrt(len(case_list)))
 # use_common_label_bar = True
 
@@ -85,18 +108,36 @@ plot_diff = False
 if case_list==[]: raise ValueError('ERROR - case list is empty!')
 num_var,num_case = len(var),len(case_list)
 
-# set up figure object
-(d1,d2) = (num_var,num_case) if var_x_case else (num_case,num_var)
+# # set up figure object
+# (d1,d2) = (num_var,num_case) if var_x_case else (num_case,num_var)
+# fdx,fdy=15,10;figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
 
-fdx,fdy=15,10;figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
+fdx,fdy=15,10
+
+
+if 'num_plot_col' in locals() and num_plot_col is not None:
+    num_panels = num_case * num_var
+    nrows = int(np.ceil(num_panels / float(num_plot_col)))
+    ncols = num_plot_col
+    figsize = (fdx*ncols,fdy*nrows)
+else:
+    (nrows,ncols) = (num_var,num_case) if var_x_case else (num_case,num_var)
+    figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
+
 
 if alt_subplot_method:
     fig = plt.figure(figsize=figsize,layout="constrained")
 else:
     ctr_lon = case_opts_list[0]['xlon']
     proj_plot = ccrs.PlateCarree(central_longitude=ctr_lon)
-    fig,axs = plt.subplots( d1,d2,figsize=figsize,layout="constrained",squeeze=False,
+    fig,axs = plt.subplots( nrows=nrows, ncols=ncols,
+                            figsize=figsize,
+                            layout="constrained",
+                            squeeze=False,
                             subplot_kw={'projection':proj_plot})
+    axs_flat = axs.flatten()
+    # fig,axs = plt.subplots( d1,d2,figsize=figsize,layout="constrained",squeeze=False,
+    #                         subplot_kw={'projection':proj_plot})
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 path_lat = [None]*num_case
@@ -106,6 +147,8 @@ for v in range(num_var):
     print('  var: '+hapy.tclr.MAGENTA+var[v]+hapy.tclr.END)
     data_list,lat_list,lon_list = [],[],[]
     std_list,cnt_list = [],[]
+    cosmic_lat_list = [None]*num_case
+    cosmic_lon_list = [None]*num_case
     for c in range(num_case):
         print('    case: '+hapy.tclr.GREEN+case_list[c]+hapy.tclr.END)
         case_opts = case_opts_list[c]
@@ -143,6 +186,22 @@ for v in range(num_var):
             # kwargs['use_cftime']=True
         ds = ux.open_mfdataset(case_opts['g'], file_list, **kwargs)
         ds = ds.sel(time=target_time, method='nearest') # select time nearest SOHIP observation
+        #-----------------------------------------------------------------------
+        # load COSMIC localtion data
+        # cosmic_file_list = cosmic_get_file_list(target_time)
+        cosmic_file_list = cosmic_get_file_list(target_time, 
+                                                xlat=case_opts['tlat'],
+                                                xlon=case_opts['tlon'], 
+                                                max_dist_km=1000,
+                                                window_minutes=60,)
+        tmp_cosmic_lat_list = []
+        tmp_cosmic_lon_list = []
+        for f in cosmic_file_list:
+            ds_cosmic = xr.open_dataset(f)
+            tmp_cosmic_lat_list.append(ds_cosmic.attrs['lat'])
+            tmp_cosmic_lon_list.append(ds_cosmic.attrs['lon'])
+        cosmic_lat_list[c] = tmp_cosmic_lat_list
+        cosmic_lon_list[c] = tmp_cosmic_lon_list
         #-----------------------------------------------------------------------
         # if case_list[c]=='IMERG':
         #     actual_ds_time = ds.time_bnds.isel(nv=1).values
@@ -258,7 +317,9 @@ for v in range(num_var):
             (d1,d2,ip) = (num_var,num_case,v*num_case+c+1) if var_x_case else (num_case,num_var,c*num_var+v+1)
             ax = fig.add_subplot(d1,d2,ip,projection=proj_plot)
         else:
-            ax = axs[v,c] if var_x_case else axs[c,v]
+            ip = v*num_case+c
+            ax = axs_flat[ip]
+            # ax = axs[v,c] if var_x_case else axs[c,v]
 
         ax.coastlines(linewidth=0.2,edgecolor='white')
         ax.set_title(case_opts['n'],    fontsize=20, loc='left')
@@ -323,6 +384,16 @@ for v in range(num_var):
                       color='red', 
                       linewidth=1,
                       transform=ccrs.PlateCarree())
+        #-----------------------------------------------------------------------
+        # overlay COSMIC sounding markers
+        for i in range(len(cosmic_lat_list[c])):
+            ax.scatter( cosmic_lon_list[c][i], cosmic_lat_list[c][i], 
+                        marker='*', 
+                        s=100, 
+                        c='magenta', 
+                        linewidths=2,
+                        transform=ccrs.PlateCarree(),
+                        zorder=5)
 
 #---------------------------------------------------------------------------------------------------
 # Finalize plot

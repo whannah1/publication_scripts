@@ -390,3 +390,72 @@ def calc_gw_ep(da, poly_order=7, min_lz=None, max_lz=5000., bkgd=None):
     #---------------------------------------------------------------------------
     return ep
 #---------------------------------------------------------------------------------------------------
+''' example file paths:
+/global/cfs/cdirs/m4842/whannah/COSMIC2/atmPrf/2023/atmPrf_2023_109/atmPrf_C2E2.2023.109.00.01.R21_0001.0001_nc
+/global/cfs/cdirs/m4842/whannah/COSMIC2/wetPf2/2023/wetPf2_2023_109/wetPf2_C2E2.2023.109.00.01.R21_0001.0001_nc
+'''
+#---------------------------------------------------------------------------------------------------
+def cosmic_get_file_list(target_time, xlat=None, xlon=None, max_dist_km=500, window_minutes=60):
+    '''
+    Return COSMIC-2 atmPrf files whose occultation time is within
+    +/- window_minutes of target_time AND whose tangent-point location
+    is within max_dist_km of (xlat, xlon) via great-circle distance.
+
+    target_time       cftime object (DatetimeNoLeap or DatetimeJulian)
+    xlat, xlon        center of spatial filter region (degrees)
+    max_dist_km       great-circle distance cutoff in km (default 500)
+    window_minutes    half-width of time window in minutes (default 60)
+    '''
+    cosmic_data_root = '/global/cfs/cdirs/m4842/whannah/COSMIC2'
+    window_seconds = window_minutes * 60
+    #---------------------------------------------------------------------------
+    # determine which day-of-year directories to search so the window
+    # is fully covered when it straddles a UTC day boundary
+    target_dt = datetime.datetime(target_time.year, target_time.month, target_time.day,
+                                  target_time.hour, target_time.minute, 0)
+    doy_set = set()
+    for offset_sec in (-window_seconds, 0, window_seconds):
+        dt = target_dt + datetime.timedelta(seconds=offset_sec)
+        doy_set.add((dt.year, dt.timetuple().tm_yday))
+    #---------------------------------------------------------------------------
+    # collect candidate files from the relevant day-of-year directories
+    file_list_all = []
+    for year, doy in sorted(doy_set):
+        pattern = f'{cosmic_data_root}/atmPrf/{year}/atmPrf_{year}_{doy:03d}/*nc'
+        file_list_all.extend(sorted(glob.glob(pattern)))
+    #---------------------------------------------------------------------------
+    # filter files to those within the time window of target_time
+    cftime_cls = type(target_time)
+    time_matching_files = []
+    for f in file_list_all:
+        match = re.search(
+            r'atmPrf_C2E\d\.(?P<year>\d{4})\.(?P<doy>\d{3})\.(?P<hour>\d{2})\.(?P<minute>\d{2})',
+            f,
+        )
+        if match is None: continue
+        year, doy, hour, minute = match.groups()
+        base_time = datetime.datetime.strptime(f'{year} {doy}', '%Y %j')
+        file_time = base_time + datetime.timedelta(hours=int(hour), minutes=int(minute))
+        file_cftime = cftime_cls(file_time.year, file_time.month, file_time.day,
+                                 file_time.hour, file_time.minute, 0)
+        tsec_diff = abs((file_cftime - target_time).total_seconds())
+        if tsec_diff <= window_seconds:
+            time_matching_files.append(f)
+    #---------------------------------------------------------------------------
+    if xlat is not None and xlon is not None:
+        # filter remaining files by great-circle distance of tangent point
+        # (lat/lon are global attributes on COSMIC-2 atmPrf files)
+        matching_files = []
+        for f in time_matching_files:
+            with xr.open_dataset(f, decode_times=False) as ds:
+                flat = float(ds.attrs['lat'])
+                flon = float(ds.attrs['lon'])
+            dist_km = calc_great_circle_distance(xlat, flat, xlon, flon)
+            if dist_km <= max_dist_km:
+                matching_files.append(f)
+    else:
+        matching_files = time_matching_files
+    #---------------------------------------------------------------------------
+    return matching_files
+
+#---------------------------------------------------------------------------------------------------

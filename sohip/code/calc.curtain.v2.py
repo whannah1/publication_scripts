@@ -1,6 +1,12 @@
 from sohip_methods import *
 case_root = '/pscratch/sd/w/whannah/scream_scratch/pm-gpu'
 #---------------------------------------------------------------------------------------------------
+''' NOTES
+June 2026 update:
+preliminary "SOHIP simulator" results show that we need both a longer path length
+and we need to blend MSIS data into the curtain.
+'''
+#---------------------------------------------------------------------------------------------------
 '''
 salloc --nodes 1 --qos interactive --time 04:00:00 --constraint cpu --account=e3sm
 source activate ux_env
@@ -54,20 +60,26 @@ output_data_root = '/global/cfs/cdirs/m4842/whannah/curtain_data'
 #---------------------------------------------------------------------------------------------------
 
 wgt_method = 'inv_dist'
-path_len_km = 1200   # total path distance [km]
+
+# path_len_km = 1200   # total path distance [km]
+path_len_km = 2000   # total path distance [km]
+
 path_spc_km = 2      # spacing between interpolated path points [km]
 path_ncells = 2      # number of cells to consider nearest to each point (ncll)
 
 
-# use larger cell count for "background" profile
-wgt_method = 'area'
+### use larger cell count for "background" profile
 # path_ncells = 10 # ~ 9.6km radius
 # path_ncells = 20 # ~12.5km radius
 # path_ncells = 30 # ~15.4km radius
 # path_ncells = 40 # ~17.6km radius
 # path_ncells = 50 # ~19.78km radius
 # path_ncells = 60 # ~21.64km radius
+
 path_ncells = 80 # ~24.87km radius
+wgt_method = 'area'
+
+target_heights = np.arange(10e3,55e3+250,200)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -256,7 +268,6 @@ for c in range(num_case):
         #-----------------------------------------------------------------------
         # interpolate to height coordinate
         print(''+' '*4+'interpolating to height coordinate...')
-        target_heights = np.arange(10e3,55e3+250,200)
         data_interp_hgt = hapy.interp_to_height( data_interp, zmid_interp, target_heights,
                                                  lev_dim='lev', height_dim='height',extrapolate=False)
         #-----------------------------------------------------------------------

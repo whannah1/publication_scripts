@@ -105,18 +105,30 @@ if case_list==[]: raise ValueError('ERROR - case list is empty!')
 num_var,num_case = len(var),len(case_list)
 
 # set up figure object
-(d1,d2) = (num_var,num_case) if var_x_case else (num_case,num_var)
 
-fdx,fdy=15,10;figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
-# figsize = (30,30)
-# figsize = (10,10)
+
+fdx,fdy=15,10
+figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
+
+if 'num_plot_col' in locals() and num_plot_col is not None:
+    num_panels = num_case * num_var
+    nrows = int(np.ceil(num_panels / float(num_plot_col)))
+    ncols = num_plot_col
+    figsize = (fdx*num_case,fdy*num_var) if var_x_case else (fdx*num_var,fdy*num_case)
+else:
+    (nrows,ncols) = (num_var,num_case) if var_x_case else (num_case,num_var)
+    
 
 if alt_subplot_method:
     fig = plt.figure(figsize=figsize,layout="constrained")
 else:
     ctr_lon = case_opts_list[0]['xlon']
     proj_plot = ccrs.PlateCarree(central_longitude=ctr_lon)
-    fig,axs = plt.subplots(d1,d2,figsize=figsize,layout="constrained",squeeze=False,subplot_kw={'projection':proj_plot})
+    fig,axs = plt.subplots( nrows=nrows, ncols=ncols,
+                            figsize=figsize,
+                            layout="constrained",
+                            squeeze=False,
+                            subplot_kw={'projection':proj_plot})
 
 #---------------------------------------------------------------------------------------------------
 def get_comp(case):

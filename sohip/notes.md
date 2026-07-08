@@ -82,3 +82,40 @@ python -u ~/HICCUP/get_validation_data.ERA5.py --start-date=20230617 --final-dat
 ```shell
 ncremap -G ttl='Equi-Angular grid 0.1x0.1 deg'#latlon=1800,3600#lat_typ=uni#lon_typ=180_wst -g /pscratch/sd/w/whannah/e3sm_scratch/files_grid/IMERG_1800x3600_scrip.nc
 ```
+
+
+# COSMIC2 Data
+
+```shell
+#---------------------------------------------------------------------------------------------------
+ncdump -h /global/cfs/cdirs/m4842/whannah/COSMIC2/atmPrf/2023/atmPrf_2023_109/atmPrf_C2E2.2023.109.00.01.R21_0001.0001_nc | grep "long_name"
+    Lat:long_name = "Latitude of perigee point" ;
+    Lon:long_name = "Longitude of perigee point" ;
+    MSL_alt:long_name = "Mean sea level altitude of perigee point" ;
+    Ref:long_name = "Refractivity" ;
+    Azim:long_name = "Azimuth of occultation plane wrt North" ;
+    Pres:long_name = "Dry pressure" ;
+    Temp:long_name = "Dry temperature" ;
+    Bend_ang1:long_name = "L1 bending angle" ;
+    Bend_ang2:long_name = "L2 bending angle" ;
+    Bend_ang:long_name = "Ionosphere-corrected bending angle" ;
+    Impact_height:long_name = "Impact height" ;
+    Ref_L1:long_name = "Refractivity " ;
+    Bend_ang_stdv:long_name = "Bending angle uncertainty" ;
+    Bend_ang_conf:long_name = "Bending angle confidence" ;
+#---------------------------------------------------------------------------------------------------
+ncdump -h /global/cfs/cdirs/m4842/whannah/COSMIC2/wetPf2/2023/wetPf2_2023_109/wetPf2_C2E2.2023.109.00.01.R21_0001.0001_nc | grep "long_name"
+    MSL_alt:long_name = "Geometric height above MSL" ;
+    lat:long_name = "Geodetic latitude" ;
+    lon:long_name = "Geodetic longitude" ;
+    gph:long_name = "Geopotential height above MSL" ;
+    Temp:long_name = "Temperature" ;
+    Pres:long_name = "Pressure" ;
+    Vp:long_name = "Water vapor pressure" ;
+    sph:long_name = "Specific humidity" ;
+    rh:long_name = "Relative humidity" ;
+    ref:long_name = "Refractivity" ;
+    temp_dry:long_name = "DRY T derived from variationally optimized BA (before entering 1DVAR)" ;
+    pres_dry:long_name = "DRY p derived from variationally optimized BA (before entering 1DVAR)" ;
+#---------------------------------------------------------------------------------------------------
+```
