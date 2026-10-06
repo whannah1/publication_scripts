@@ -27,7 +27,7 @@ num_plot_col = 1
 #-------------------------------------------------------------------------------
 
 # fig_type,fig_file = 'png',f'figs/FXX-GEF-xy'
-fig_type,fig_file = 'png',f'figs/fig-GEF-xy'
+fig_type,fig_file = 'png',f'figs/fig-tropical-gef'
 tmp_file_head = 'data/GEF-xy'
 
 # yr1,yr2 = 2001,2002
