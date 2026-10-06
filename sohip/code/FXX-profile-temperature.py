@@ -275,6 +275,24 @@ for v in range(num_var):
     ax.set_ylim( np.min(scream_zlev_list),
                  np.max(scream_zlev_list) )
 
+    ax.set_title(case_opts['n'],    fontsize=12, loc='left')
+    ax.set_title(case_opts['xtime'],fontsize=12, loc='center')
+    ax.set_title('Temperature',     fontsize=12, loc='right')
+
+    lgd_labels = ['SCREAM',
+                  f'COSMIC2 @ {cosmic_lat_list[0][0]:4.1f}N {cosmic_lon_list[0][0]:4.1f}E',
+                  f'COSMIC2 @ {cosmic_lat_list[0][1]:4.1f}N {cosmic_lon_list[0][1]:4.1f}E',
+                  f'COSMIC2 @ {cosmic_lat_list[0][2]:4.1f}N {cosmic_lon_list[0][2]:4.1f}E',
+                  f'COSMIC2 @ {cosmic_lat_list[0][3]:4.1f}N {cosmic_lon_list[0][3]:4.1f}E',
+                 ]    
+    print()
+    print(lgd_labels)
+    print()
+
+    ax.legend(handles=ax.get_lines(),
+              labels=lgd_labels,
+              fontsize=10)
+
 #---------------------------------------------------------------------------------------------------
 # Finalize plot
 plt.tight_layout(w_pad=1, h_pad=2)
