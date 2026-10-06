@@ -34,7 +34,8 @@ num_plot_col = 1
 
 #-------------------------------------------------------------------------------
 
-fig_type,fig_file = 'png',f'figs/FXX-sfc-flux-vs-precip'
+# fig_type,fig_file = 'png',f'figs/FXX-sfc-flux-vs-precip'
+fig_type,fig_file = 'png',f'figs/fig-sfc-flux-vs-precip'
 tmp_file_head = 'data/sfc-flux-vs-precip'
 
 lat1,lat2 = -30,30

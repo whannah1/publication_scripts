@@ -67,7 +67,8 @@ wave_type_list.append('Kelvin')
 wave_type_list.append('Rossby')
 # wave_type_list.append('MRG')
 
-fig_type,fig_file = 'png',f'figs/FXX-wave-variance-xy'
+# fig_type,fig_file = 'png',f'figs/FXX-wave-variance-xy'
+fig_type,fig_file = 'png',f'figs/fig-wave-variance-xy'
 # fig_file_diff = f'{fig_file}.diff'
 
 # tmp_file_head = 'data/kelvin-variance-map'

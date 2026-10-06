@@ -58,7 +58,8 @@ add_var('FLUT', 'OLR', unit='W/m2')
 
 spec_type = 'sym' # sym / asym / tot
 
-fig_type,fig_file = 'png',f'figs/FXX-wk-spectra-{spec_type}'
+# fig_type,fig_file = 'png',f'figs/FXX-wk-spectra-{spec_type}'
+fig_type,fig_file = 'png',f'figs/fig-wk-spectra-{spec_type}'
 fig_file_diff = f'{fig_file}.diff'
 tmp_file_head = 'data/wk-wave-spectra'
 

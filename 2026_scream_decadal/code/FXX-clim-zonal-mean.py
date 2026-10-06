@@ -62,7 +62,8 @@ lev = np.array([ 50.,  70., 100., 125., 150., 175., 200., 225., 250., 300., 350.
 lev = lev * 1e2   # Pa
 
 #-------------------------------------------------------------------------------
-fig_file = f'figs/FXX-clim-zonal-mean'
+# fig_file = f'figs/FXX-clim-zonal-mean'
+fig_file = f'figs/fig-zonal-mean-qv'
 
 lat1, lat2 = -15, 15
 yr1, yr2   = 1995, 2004
